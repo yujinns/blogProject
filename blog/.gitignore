@@ -1,15 +1,11 @@
 HELP.md
 .gradle
-gradlew
-gradlew.bat
-
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-*.properties
-
+application.properties
 ### STS ###
 .apt_generated
 .classpath
