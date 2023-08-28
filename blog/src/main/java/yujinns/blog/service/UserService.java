@@ -8,6 +8,7 @@ import yujinns.blog.mapper.UserMapper;
 @Service
 public class UserService {
 
+
     private final UserMapper userMapper;
 
     @Autowired

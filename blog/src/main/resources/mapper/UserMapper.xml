@@ -3,7 +3,7 @@
 
 <mapper namespace="yujinns.blog.mapper.UserMapper">
     <insert id="insertUser" parameterType="yujinns.blog.DTO.User">
-        insert into yujinns_user (idx, id, password, nickname, email) values (idx_seq.nextval, #{id}, #{password], #{nickname}, #{email})
+        insert into yujinns_user (idx, id, password, nickname, email) values (idx_seq.nextval, #{id}, #{password}, #{nickname}, #{email})
     </insert>
 
     <select id="selectUserById" parameterType="java.lang.String" resultType="yujinns.blog.DTO.User">
