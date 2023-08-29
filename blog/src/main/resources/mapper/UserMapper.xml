@@ -13,4 +13,8 @@
     <delete id="deleteUserById" parameterType="java.lang.String">
         delete from yujinns_user where id = #{id}
     </delete>
+
+    <update id="updateUser" parameterType="yujinns.blog.DTO.User">
+        update yujinns_user set nickname = #{nickname}, password = #{password} where id = #{id}
+    </update>
 </mapper>

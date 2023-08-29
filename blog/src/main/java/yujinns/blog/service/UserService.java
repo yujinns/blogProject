@@ -20,6 +20,10 @@ public class UserService {
         userMapper.insertUser(user);
     }
 
+    public void deleteUserById(String id) { userMapper.deleteUserById(id); }
+
+    public void updateUser(User user) { userMapper.updateUser(user);}
+
     public User selectUserById(String id) {
         return userMapper.selectUserById(id);
     }
