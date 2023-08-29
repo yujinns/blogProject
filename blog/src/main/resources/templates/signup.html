@@ -26,11 +26,13 @@
     const passwordInput = document.getElementById('password');
     const passwordConfirmInput = document.getElementById('passwordConfirm');
     const passwordMatchError = document.getElementById('passwordMatchError');
+    const singupForm = document.getElementById('signupForm');
 
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
+    singupForm.addEventListener('submit', function (event) {
         if (passwordInput.value !== passwordConfirmInput.value) {
             event.preventDefault();
             passwordMatchError.textContent = '비밀번호를 다시 확인하세요.';
+            passwordInput.focus();
         }
     });
 
