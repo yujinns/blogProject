@@ -4,6 +4,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 import yujinns.blog.DTO.User;
 
+import java.util.List;
+
 @Mapper
 @Repository
 public interface UserMapper {
@@ -15,4 +17,6 @@ public interface UserMapper {
     void updateUser(User user);
 
     User selectUserById(String id);
+
+    List<User> getAllUsers();
 }

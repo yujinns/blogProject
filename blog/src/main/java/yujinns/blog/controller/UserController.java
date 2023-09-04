@@ -10,6 +10,7 @@ import yujinns.blog.DTO.User;
 import yujinns.blog.service.UserService;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -22,20 +23,29 @@ public class UserController {
     }
 
     @GetMapping("/home")
-    public String home(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
-        model.addAttribute("isAuthenticated", isAuthenticated);
-        if (isAuthenticated) {
-            model.addAttribute("username", authentication.getName());
-        }
-        return "/home";
-    }
+    public String home() { return "/home"; }
 
+//    @GetMapping("/home")
+//    public String home(Model model) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
+//        model.addAttribute("isAuthenticated", isAuthenticated);
+//        if (isAuthenticated) {
+//            model.addAttribute("username", authentication.getName());
+//        }
+//        return "/home";
+//    }
 
     @GetMapping("/signup")
     public String signup() {
         return "/signup";
+    }
+
+    @GetMapping("/userlist")
+    public String userList(Model model) {
+        List<User> users = userService.getAllUsers();
+        model.addAttribute("users", users);
+        return "userlist";
     }
 
     @PostMapping("/signup")
@@ -74,9 +84,7 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login() {
-        return "/login";
-    }
+    public String login() { return "login"; }
 
     @PostMapping("/login")
     public String login(@RequestParam String id, @RequestParam String password, HttpSession session) {
@@ -85,7 +93,7 @@ public class UserController {
             session.setAttribute("username",user.getNickname());
             return "redirect:/home";
         } else {
-            return "redirect:/login?error";
+            return "redirect:/login_fail";
         }
     }
 
@@ -94,7 +102,6 @@ public class UserController {
         session.removeAttribute("username");
         return "redirect:/home";
     }
-
 
     @GetMapping("/login_success")
     public String loginSuccess() { return "login_success";}

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import yujinns.blog.DTO.User;
 import yujinns.blog.mapper.UserMapper;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -37,5 +39,7 @@ public class UserService {
     public void updateUser(User user) { userMapper.updateUser(user);}
 
     public User selectUserById(String id) { return userMapper.selectUserById(id); }
+
+    public List<User> getAllUsers() { return userMapper.getAllUsers(); }
 
 }

@@ -8,12 +8,11 @@
 <ul>
     <li><a href="/signup">회원가입 Page</a></li>
     <li><a href="/delete">회원탈퇴 Page</a></li>
-    <li><a href="/update">회원정보수정 Page</a></li>
-    <li><a href="/login">로그인 Page</a></li>
 </ul>
 
 <div th:if="${session['username']}">
     <p>Welcome, <span th:text="${session['username']}"></span>!</p>
+    <a href="/update">회원정보수정 Page</a>
     <a href="/logout">Logout</a>
 </div>
 <div th:unless="${session['username']}">

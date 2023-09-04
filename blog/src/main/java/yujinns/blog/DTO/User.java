@@ -1,16 +1,11 @@
 package yujinns.blog.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
+@Data
 public class User {
 
+    private String idx;
     private String id;
     private String password;
     private String nickname;

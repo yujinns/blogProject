@@ -3,11 +3,18 @@
 
 <mapper namespace="yujinns.blog.mapper.UserMapper">
     <insert id="insertUser" parameterType="yujinns.blog.DTO.User">
-        insert into yujinns_user (idx, id, password, nickname, email) values (idx_seq.nextval, #{id}, #{password}, #{nickname}, #{email})
+        <selectKey keyProperty="idx" resultType="String" order="BEFORE">
+            SELECT idx_seq.nextval FROM dual
+        </selectKey>
+        insert into yujinns_user (idx, id, password, nickname, email) values (#{idx}, #{id}, #{password}, #{nickname}, #{email})
     </insert>
 
     <select id="selectUserById" parameterType="java.lang.String" resultType="yujinns.blog.DTO.User">
         select * from yujinns_user where id = #{id}
+    </select>
+
+    <select id="getAllUsers" resultType="yujinns.blog.DTO.User">
+        select * from yujinns_user
     </select>
 
     <delete id="deleteUserById" parameterType="java.lang.String">
@@ -15,6 +22,6 @@
     </delete>
 
     <update id="updateUser" parameterType="yujinns.blog.DTO.User">
-        update yujinns_user set nickname = #{nickname}, password = #{password} where id = #{id}
+        update yujinns_user set nickname = #{nickname} where id = #{id}
     </update>
 </mapper>
