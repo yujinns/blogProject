@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="mypage.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a67b8eee2b.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <title>마이페이지</title>
+</head>
+<body>
+  <form id="mypage" name="mypage" action="mypage_action" method="post"></form>
+    <div class="mypage">
+        <img class="mypage_bg" src="image/main_background.png" />
+        <div class="mypage_block"></div>
+        <div class="mypage_title">마이 페이지</div>
+        <div class="profile">
+          <div class="profile_id">아이디</div>
+          <div class="profile_id_c">yujinns</div>
+          <div class="profile_pwd">비밀번호</div>
+          <div class="profile_pwd_c">●●●●●</div>
+          <div class="profile_name">닉네임</div>
+          <input type="text" class="profile_name_c" value="이지은"></input>
+          <a href="*" class="profile_delete">회원 탈퇴</a>
+          <a href="password_change.html" class="profile_pwd_ch">비밀번호 변경</a>
+          <img class="profile_photo" src="image/아이유.png" />
+        </div>
+        <div class="profile_intro_wrap">
+          <div class="profile_intro">
+            <div class="profile_intro_block"></div>
+            <textarea placeholder="자기소개를 입력하세요.">노래만 해봐서 게임을 잘 못합니다. 즐겜충이에요.</textarea>
+          </div>
+          <div class="profile_intro_title">소개</div>
+        </div>
+        <div class="mypage_change_bt_wrap">
+          <input type="submit" class="mypage_change_bt" value="변경"></input>
+        </div>
+        <a href="#" class="mypage_cancle_bt">취소</a>
+      </div>
+</body>
