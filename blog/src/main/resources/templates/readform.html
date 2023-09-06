@@ -1,0 +1,83 @@
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="찰규가 숨겨놓은 공간을 발견했다!">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300&display=swap" 
+    rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2d323a629b.js"
+    crossorigin="anonymous"></script>
+    <title>COSMOS</title>
+  </head>
+    <body bgcolor="#0000">
+      <nav class="navbar">
+        <div class="navbar_logo">
+          <i class="fas fa-meteor"></i>
+          <a href="/">COSMOS</a>
+        </div>
+
+        <ul class="navbar_menu">
+          <li><a href="/"><span>HOME</span></a></li>
+          <li><a href="#"><span>ABOUT</span></a></li>
+          <li><a href="/board/list"><span>BLOG</span></a></li>
+          <li><a href="#"><span>GALLERY</span></a></li>
+          <li><a href="#"><span>VIDEO</span></a></li>
+        </ul>
+        <ul class="navbar_icons">
+          <li><a href="https://www.instagram.com/gyulo94/" class="fab fa-instagram"></a></li>
+          <li><a href="https://www.facebook.com/qkrcjfrb112/" class="fab fa-facebook-f"></a></li>
+        </ul>
+        <a href="#" class="navbar_toogleBtn">
+          <i class="fas fa-bars"></i>
+        </a>
+      </nav>
+      <div class="scrollbar" id="style-2">
+        <div class="force-overflow"></div>
+      </div>
+<!----------------------------------네비바---------------------------------------->
+      <div class="board_wrap">
+        <div class="board_title">
+            <Strong>과학이야기</Strong>
+            <p>과학을 재미있고 정확하게 들려드립니다.</p>
+        </div>
+        <div  th:each="read : ${read}" class="board_read_wrap">
+            <div class="board_read">
+                <div th:text="${read.title}" class="title">
+
+                </div>
+                <div class="info">
+                    <dl>
+                      <dt>번호</dt>
+                      <dd th:text="${read.boardIdx}"></dd>
+                    </dl>
+                    <dl>
+                      <dt>작성자</dt>
+                      <dd th:text="${read.name}"></dd>
+                    </dl>
+                    <dl>
+                      <dt>작성일</dt>
+                      <dd th:text="${read.createdtime}"></dd>
+                    </dl>
+                    <dl>
+                      <dt>조회</dt>
+                      <dd th:text="${read.hitcnt}">9/dd>
+                    </dl>
+                </div>
+                <div  th:text="${read.content}" class="cont">
+
+                </div>
+            </div>
+            <div class="bt_wrap">
+                <a th:href="@{/board/updateform(boardIdx=${read.boardIdx})}">수정</a>
+                <a href="/board/list" class="on">목록</a>
+                <a th:href="@{/board/deleteBoard(boardIdx=${read.boardIdx})}">삭제</a>
+            </div>
+        </div>
+      </div>
+    </body>
+    <script src="main.js" defer></script>
+</html>

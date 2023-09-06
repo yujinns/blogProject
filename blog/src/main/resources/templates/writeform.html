@@ -1,0 +1,79 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="찰규가 숨겨놓은 공간을 발견했다!">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300&display=swap" 
+    rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2d323a629b.js"
+    crossorigin="anonymous"></script>
+    <title>COSMOS</title>
+  </head>
+    <body bgcolor="#0000">
+      <nav class="navbar">
+        <div class="navbar_logo">
+          <i class="fas fa-meteor"></i>
+          <a href="/">COSMOS</a>
+        </div>
+
+        <ul class="navbar_menu">
+          <li><a href="/"><span>HOME</span></a></li>
+          <li><a href="#"><span>ABOUT</span></a></li>
+          <li><a href="/board/list"><span>BLOG</span></a></li>
+          <li><a href="#"><span>GALLERY</span></a></li>
+          <li><a href="#"><span>VIDEO</span></a></li>
+        </ul>
+        <ul class="navbar_icons">
+          <li><a href="https://www.instagram.com/gyulo94/" class="fab fa-instagram"></a></li>
+          <li><a href="https://www.facebook.com/qkrcjfrb112/" class="fab fa-facebook-f"></a></li>
+        </ul>
+        <a href="#" class="navbar_toogleBtn">
+          <i class="fas fa-bars"></i>
+        </a>
+      </nav>
+      <div class="scrollbar" id="style-2">
+        <div class="force-overflow"></div>
+      </div>
+<!----------------------------------네비바---------------------------------------->
+      <form action="/board/writeAction" method="post">
+      <div class="board_wrap">
+        <div class="board_title">
+            <Strong>과학이야기</Strong>
+            <p>과학을 재미있고 정확하게 들려드립니다.</p>
+        </div>
+        <div class="board_write_wrap">
+            <div class="board_write">
+                <div class="title">
+                  <dl>
+                    <dt>제목</dt>
+                    <dd><input id="title" name="title" type="text" placeholder="제목 입력"></dd>
+                  </dl>
+                </div>
+                <div class="info">
+                    <dl>
+                      <dt>작성자</dt>
+                      <dd><input id="name" name="name" type="text" placeholder="작성자 입력"></dd>
+                    </dl>
+                    <dl>
+                      <dt>비밀번호</dt>
+                      <dd><input id="pwd" name="pwd" type="password" placeholder="비밀번호 입력"></dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                  <textarea id="content" name="content" placeholder="내용 입력"></textarea>
+                </div>
+            </div>
+            <div class="bt_wrap">
+              <input type="submit" value="등록" class="on"></input>
+              <a href="list">취소</a>
+            </div>
+        </div>
+      </div>
+      </form>
+    </body>
+    <script src="main.js" defer></script>
+</html>
