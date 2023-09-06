@@ -1,8 +1,6 @@
 package yujinns.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +36,7 @@ public class UserController {
 
     @GetMapping("/signup")
     public String signup() {
-        return "/signup";
+        return "signup";
     }
 
     @GetMapping("/userlist")
@@ -84,7 +82,7 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login() { return "login"; }
+    public String login() { return "loginForm"; }
 
     @PostMapping("/login")
     public String login(@RequestParam String id, @RequestParam String password, HttpSession session) {
@@ -109,4 +107,30 @@ public class UserController {
     @GetMapping("/login_fail")
     public String loginFail() { return "login_fail"; }
 
+    @GetMapping("/users")
+    public String getUsersByPage(Model model, @RequestParam(name="page", defaultValue = "1") int page) {
+        int pageSize = 4;
+        int totalUsers = userService.getTotalUserCount();
+
+        List<User> users = userService.getUsersByPage(page, pageSize);
+
+        model.addAttribute("users", users);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", (totalUsers + pageSize - 1) / pageSize);
+
+        return "/userlist";
+    }
+
+    @GetMapping("/user/{userId}")
+    public String myPage(@PathVariable String userId, Model model) {
+        User user = userService.selectUserById(userId);
+
+        if (user != null) {
+            model.addAttribute("user",user);
+
+            return "mypage";
+        } else {
+            return "home";
+        }
+    }
 }

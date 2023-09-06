@@ -6,7 +6,7 @@
         <selectKey keyProperty="idx" resultType="String" order="BEFORE">
             SELECT idx_seq.nextval FROM dual
         </selectKey>
-        insert into yujinns_user (idx, id, password, nickname, email) values (#{idx}, #{id}, #{password}, #{nickname}, #{email})
+        insert into yujinns_user (idx, id, password, nickname, pwd_q, pwd_a, email, intro) values (#{idx}, #{id}, #{password}, #{nickname}, #{pwd_q}, #{pwd_a}, #{email}, #{intro})
     </insert>
 
     <select id="selectUserById" parameterType="java.lang.String" resultType="yujinns.blog.DTO.User">
@@ -24,4 +24,12 @@
     <update id="updateUser" parameterType="yujinns.blog.DTO.User">
         update yujinns_user set nickname = #{nickname} where id = #{id}
     </update>
+
+    <select id="getUsersByPage" resultType="yujinns.blog.DTO.User" parameterType="map">
+        <![CDATA[ SELECT * FROM ( SELECT a.*, ROWNUM AS rnum FROM ( SELECT * FROM yujinns_user ORDER BY created_date DESC ) a WHERE ROWNUM <= #{endRow} ) WHERE rnum >= #{startRow}]]>
+    </select>
+    
+    <select id="getTotalUserCount" resultType="int">
+        select count(*) from yujinns_user
+    </select>
 </mapper>

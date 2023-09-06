@@ -42,4 +42,15 @@ public class UserService {
 
     public List<User> getAllUsers() { return userMapper.getAllUsers(); }
 
+    public List<User> getUsersByPage(int page, int pageSize) {
+        int startRow = (page - 1) * pageSize + 1;
+        int endRow = startRow + pageSize - 1;
+
+        return userMapper.getUsersByPage(startRow, endRow);
+    }
+
+    public int getTotalUserCount() {
+        return userMapper.getTotalUserCount();
+    }
+
 }

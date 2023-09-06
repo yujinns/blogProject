@@ -1,0 +1,203 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding:0px;    
+}
+
+html {
+    overflow: hidden;
+  }
+
+.body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    background: url(image/main_background.png) no-repeat center fixed; 
+    background-size: cover; 
+    height: 100vh;
+}
+
+.LoginPage {
+    width: 1920px; 
+    height: 1080px; 
+    top: -85px; 
+    position: relative;
+}
+
+.login_block {
+    width: 855px; 
+    height: 561px; 
+    left: 529px; 
+    top: 284px; 
+    position: absolute; 
+    background: #191A1E; 
+    border-radius: 50px; 
+    border: 0.50px #191A1E solid;
+}
+
+.servicename {
+    padding: 10px; 
+    left: 872px; 
+    top: 365px; 
+    position: absolute; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    display: inline-flex
+}
+
+.servicename label {
+    color: #FAFBFC; 
+    font-size: 40px; 
+}
+
+.id_wrap {
+    width: 505px; 
+    height: 45px; 
+    left: 711px; 
+    top: 495px; 
+    position: absolute;
+}
+
+.id_block {
+    width: 497px; 
+    height: 45px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.id_wrap input {
+    width: 448px; 
+    height: 25px; 
+    left: 10px; 
+    top: 12px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100; 
+    outline: none;
+}
+
+.pwd_wrap {
+    width: 504px; 
+    height: 45px; 
+    left: 711px; 
+    top: 555px; 
+    position: absolute;
+}
+
+.pwd_block {
+    width: 497px; 
+    height: 45px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.pwd_wrap input {
+    width: 448px; 
+    height: 25px; 
+    left: 10px; 
+    top: 12px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    outline: none; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100;
+}
+
+.rememberId {
+    width: 145px; 
+    left: 712px; 
+    top: 615px; 
+    position: absolute;
+}
+
+.save_id_box {
+    width: 24px; 
+    height: 24px; 
+    padding: 5px; 
+    left: 0px; 
+    top: -5px; 
+    position: absolute; 
+    justify-content: center; 
+    align-items: center; 
+    display: inline-flex;
+}
+
+.save_id_box input {
+    width: 14px; 
+    height: 14px; 
+    background: #E0E1E6;
+}
+
+.rememberId label {
+    width: 119px; 
+    height: 16px; 
+    left: 30px; 
+    top: 3px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.Login {
+    width: 497px; 
+    height: 51px; 
+    left: 712px; 
+    top: 649px; 
+    position: absolute;
+}
+
+.Login input {
+    width: 497px; 
+    height: 51px; 
+    left: 0px; 
+    top: 0px; 
+    font-weight: 500; 
+    position: absolute; 
+    font-size: 18px; 
+    background: #32353C;
+    color: #E0E1E6;
+    border-radius: 9px;
+}
+
+.FindPassword {
+    width: 112px; 
+    height: 15px; 
+    left: 905px; 
+    top: 735px; 
+    position: absolute; 
+    text-align: center; 
+    color: #E0E1E6; 
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.Register {
+    width: 112px; 
+    height: 15px; 
+    left: 905px; 
+    top: 760px; 
+    position: absolute; 
+    text-align: center; 
+    color: #E0E1E6; 
+    font-size: 13px;
+    font-weight: 300;
+}
