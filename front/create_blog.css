@@ -1,0 +1,126 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding:0px;    
+}
+
+html {
+    overflow: hidden;
+  }
+
+.body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    background: url(image/main_background.png) no-repeat center fixed; 
+    background-size: cover; 
+    height: 100vh;
+}
+
+.section {
+    width: 1920px; 
+    height: 1080px; 
+    position: relative;
+}
+
+.create_blog_wrap {
+    width: 1920px; 
+    height: 1080px; 
+    left: 0px; 
+    top: 60px; 
+    position: absolute;
+}
+
+.create_blog_block {
+    width: 826px; 
+    height: 716px; 
+    left: 542px; 
+    top: 144px; 
+    position: absolute; 
+    background: #191A1E; 
+    border-radius: 50px; 
+    border: 0.50px #191A1E solid;
+}
+
+.create_blog_title {
+    left: 849px; 
+    top: 200px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    font-size: 40px;
+}
+
+.create_blog_game {
+    width: 197px; 
+    height: 295px; 
+    left: 857px; 
+    top: 279px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.blog_name_wrap {
+    width: 193.84px; 
+    height: 41px; 
+    left: 859px; 
+    top: 625px; 
+    position: absolute;
+}
+
+.blog_name_wrap div {
+    width: 190.77px; 
+    height: 41px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.blog_name_wrap input {
+    width: 180px; 
+    height: 28px; 
+    left: 6px; 
+    top: 7px; 
+    position: absolute; 
+    background: #32353C; 
+    color: #E0E1E6; 
+    font-size: 13px; 
+    font-weight: 100; 
+    border: 0px; 
+    outline: none;
+}
+
+.create_blog_ok_bt {
+    width: 194px; 
+    height: 50px; 
+    left: 859px; 
+    top: 719px; 
+    position: absolute;
+}
+
+.create_blog_ok_bt input {
+    width: 194px; 
+    height: 50px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    font-size: 18px; 
+    background: #E0E1E6;
+    border-radius: 9px;
+}
+
+.create_blog_cancel_bt {
+    left: 939px; 
+    top: 794px; 
+    position: absolute; 
+    text-align: center; 
+    color: #E0E1E6; 
+    font-size: 15px; 
+    font-weight: 500;
+}
