@@ -15,7 +15,7 @@
 			SELECT
 				boardIdx, title, content, name, pwd, createdtime, hitcnt
 			FROM
-				board
+				yujinns_board
 			WHERE
 				boardIdx = #{boardIdx}
 			ORDER BY boardIdx DESC
@@ -27,12 +27,12 @@
 		select
 			boardIdx, title, content, name, pwd, createdtime, hitcnt
 		from
-			board
+			yujinns_board
 		order by boardIdx desc
 	</select>
 
 	<insert id="writeAction" parameterType="yujinns.blog.DTO.Board">
-			INSERT INTO board
+			INSERT INTO yujinns_board
 			(
 				boardIdx, title, content, name, pwd, createdtime
 			)
@@ -49,7 +49,7 @@
 
 	<update id="updateAction" parameterType="yujinns.blog.DTO.Board">
 
-			UPDATE board
+			UPDATE yujinns_board
 
 			SET
 			title = #{title},
@@ -62,7 +62,7 @@
 				boardIdx = #{boardIdx}
 	</update>
 	<update id="updatehit" parameterType="int">
-		UPDATE board
+		UPDATE yujinns_board
 
 		SET
 			hitcnt = hitcnt + 1
@@ -71,7 +71,7 @@
 			boardIdx = #{boardIdx}
 	</update>
 	<delete id="deleteBoard" parameterType="Board">
-			DELETE FROM board
+			DELETE FROM yujinns_board
 			WHERE
 				boardIdx = #{boardIdx}
 	</delete>
