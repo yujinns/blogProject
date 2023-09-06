@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/makeblog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a67b8eee2b.js" crossorigin="anonymous"></script>
+    <script src="loginForm.js"></script>
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <title>블로그 생성</title>
+</head>
+<body style="background: url(images/main_background.png) no-repeat center fixed; background-size: cover; height: 100vh;">
+
+<form name="makeblog" th:action="@{/makeblog}" method="post">
+    <section>
+        <div class="create_blog_wrap"></div>
+        <div class="create_blog_block"></div>
+        <div class="create_blog_title">블로그 생성 </div>
+
+        <img class="create_blog_game" th:src="{game_id}">
+        <div class="blog_name_wrap">
+            <div></div>
+            <input name ="blog_name" id="blog_name" type="text" placeholder="블로그명을 입력하세요." maxlength="15"></input>
+        </div>
+        <div class="create_blog_ok_bt">
+            <input type="submit" value="확인" ></div>
+        </div>
+        <div class="create_blog_cancel_bt">취소</div>
+    </section>
+</form>
+</body>
+</html>
