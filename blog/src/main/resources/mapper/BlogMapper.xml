@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yujinns.blog.mapper.BlogMapper">
+    <insert id="makeBlog" parameterType="yujinns.blog.DTO.Blog">
+        insert into yujinns_user (blog_id, blog_name) values (idx_seq.nextval, #{blogName})
+    </insert>
+
+    <select id="selectGame" parameterType="java.lang.String" resultType="yujinns.blog.DTO.Blog">
+        select * from yujinns_user where game_id = #{game_id}
+    </select>
+</mapper>
