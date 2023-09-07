@@ -6,10 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import yujinns.blog.DTO.Board;
 import yujinns.blog.service.BoardService;
@@ -20,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
+@RequestMapping("/board")
 public class BoardController {
     @Autowired
     private BoardService boardService;
@@ -29,15 +27,22 @@ public class BoardController {
         return "index";
     }
 
-    @GetMapping("/board/list")
+    @GetMapping("/list")
     public String list(Model model) {
         List<Board> list = boardService.list();
-        model.addAttribute("list", list);
-        return "list";
+        model.addAttribute("boardList", list);
+        return "elden_ring_list";
 
     }
 
-    @GetMapping("/board/readform")
+    @GetMapping("/details/{id}")
+    public String showBoardDetails(@PathVariable int id, Model model){
+        Board board = boardService.selectByIdx(id);
+        model.addAttribute("board", board);
+        return "elden_ring_detail";
+    }
+
+    @GetMapping("/readform")
     public String boardDetail(HttpServletRequest request,
                               HttpServletResponse response, int boardIdx, Model model) {
 
@@ -88,19 +93,19 @@ public class BoardController {
         return "readform";
     }
 
-    @GetMapping("/board/writeform")
+    @GetMapping("/writeform")
     public String writeform(){
-        return "writeform";
+        return "elden_ring_writeform";
     }
 
-    @PostMapping("/board/writeAction")
+    @PostMapping("/writeAction")
     public String writeAction(Board dto) {
         System.out.println("yujinns board::"+ dto);
         boardService.writeAction(dto);
         return "redirect:/board/list";
     }
 
-    @GetMapping("/board/updateform")
+    @GetMapping("/updateform")
     public ModelAndView updateform(int boardIdx) throws Exception{
         Board dto = boardService.selectByIdx(boardIdx);
         ModelAndView mv = new ModelAndView("/updateform");
@@ -110,14 +115,14 @@ public class BoardController {
         return mv;
     }
 
-    @PostMapping("/board/updateAction")
+    @PostMapping("/updateAction")
     public String updateAction(Board dto) throws Exception {
         System.out.println("yujinns update::"+ dto);
         boardService.updateAction(dto);
         return "redirect:/board/list";
     }
 
-    @GetMapping("/board/deleteBoard")
+    @GetMapping("/deleteBoard")
     public String deleteBoard( Board dto) throws Exception{
         System.out.println("deleteBoard::"+dto);
         Board result = boardService.deleteBoard(dto);
