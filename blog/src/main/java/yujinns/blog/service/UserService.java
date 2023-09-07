@@ -53,4 +53,14 @@ public class UserService {
         return userMapper.getTotalUserCount();
     }
 
+    public void changePassword(User user) {
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        userMapper.changePassword(user);
+    }
+
+    public void updateUserInfo(User user) {
+        userMapper.updateUserInfo(user);
+    }
+
 }
