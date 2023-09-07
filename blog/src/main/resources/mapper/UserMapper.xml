@@ -32,4 +32,12 @@
     <select id="getTotalUserCount" resultType="int">
         select count(*) from yujinns_user
     </select>
+
+    <update id="changePassword" parameterType="yujinns.blog.DTO.User">
+        update yujinns_user set password = #{password} where id = #{id}
+    </update>
+
+    <update id="updateUserInfo" parameterType="yujinns.blog.DTO.User">
+        update yujinns_user set nickname = #{nickname}, intro = #{intro} where id = #{id}
+    </update>
 </mapper>
