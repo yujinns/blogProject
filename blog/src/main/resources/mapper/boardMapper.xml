@@ -13,7 +13,7 @@
 
 	<select id="selectByIdx" parameterType="int" resultType="yujinns.blog.DTO.Board">
 			SELECT
-				boardIdx, title, content, name, pwd, createdtime, hitcnt
+				boardIdx, title, content, name, createdtime, hitcnt
 			FROM
 				yujinns_board
 			WHERE
@@ -25,7 +25,7 @@
 
 	<select id="list" resultType="yujinns.blog.DTO.Board">
 		select
-			boardIdx, title, content, name, pwd, createdtime, hitcnt
+			boardIdx, title, content, name, createdtime, hitcnt
 		from
 			yujinns_board
 		order by boardIdx desc
@@ -34,7 +34,7 @@
 	<insert id="writeAction" parameterType="yujinns.blog.DTO.Board">
 			INSERT INTO yujinns_board
 			(
-				boardIdx, title, content, name, pwd, createdtime
+				boardIdx, title, content, name, createdtime
 			)
 			VALUES
 			(
@@ -54,7 +54,6 @@
 			SET
 			title = #{title},
 			name = #{name},
-			pwd = #{pwd},
 			content = #{content},
 			updatedtime = systimestamp
 
