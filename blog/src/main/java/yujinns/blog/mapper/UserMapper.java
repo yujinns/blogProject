@@ -24,4 +24,8 @@ public interface UserMapper {
     List<User> getUsersByPage(@Param("startRow") int startRow, @Param("endRow") int endRow);
 
     int getTotalUserCount();
+
+    void changePassword(User user);
+
+    void updateUserInfo(User user);
 }
