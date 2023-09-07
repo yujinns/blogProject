@@ -1,7 +1,7 @@
 function validateRegister() {
     var uid = document.getElementById('id').value;
-    var uname = document.getElementById('name').value;
-    var pwd = document.getElementById('pwd').value;
+    var uname = document.getElementById('nickname').value;
+    var pwd = document.getElementById('password').value;
     var repwd = document.getElementById('pwdcheck').value;
     var email_id = document.getElementById('email').value;
     var pwd_a = document.getElementById('pwd_a').value;
