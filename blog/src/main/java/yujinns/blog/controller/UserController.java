@@ -57,10 +57,29 @@ public class UserController {
         return "/delete";
     }
 
-    @PostMapping("/delete")
-    public String delete(@RequestParam String id) {
-        userService.deleteUserById(id);
-        return "redirect:/home";
+//    @PostMapping("/delete")
+//    public String delete(@RequestParam String id) {
+//        userService.deleteUserById(id);
+//        return "redirect:/home";
+//    }
+
+    @GetMapping("/delete/{userId}")
+    public String delete(@PathVariable String userId, HttpSession session, Model model) {
+        String loggedInUserId = (String) session.getAttribute("userId");
+
+        if (loggedInUserId == null) {
+            return "redirect:/login";
+        }
+
+        if(loggedInUserId.equals(userId)) {
+            userService.deleteUserById(userId);
+            session.removeAttribute("userId");
+            session.removeAttribute("username");
+            return "redirect:/home";
+        } else {
+            model.addAttribute("message","삭제 권한이 없습니다.");
+            return "redirect:/home";
+        }
     }
 
     @GetMapping("/update")
@@ -88,6 +107,7 @@ public class UserController {
     public String login(@RequestParam String id, @RequestParam String password, HttpSession session) {
         User user = userService.selectUserById(id);
         if (user != null && userService.matchesPassword(password, user.getPassword())) {
+            session.setAttribute("userId",user.getId());
             session.setAttribute("username",user.getNickname());
             return "redirect:/home";
         } else {
@@ -98,6 +118,7 @@ public class UserController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("username");
+        session.removeAttribute("userId");
         return "redirect:/home";
     }
 
@@ -120,17 +141,55 @@ public class UserController {
 
         return "/userlist";
     }
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "mypage";
+    }
 
     @GetMapping("/user/{userId}")
-    public String myPage(@PathVariable String userId, Model model) {
-        User user = userService.selectUserById(userId);
+    public String myPage(@PathVariable String userId, HttpSession session, Model model) {
+        String loggedInUserId = (String) session.getAttribute("userId");
 
-        if (user != null) {
-            model.addAttribute("user",user);
-
-            return "mypage";
+        if (loggedInUserId != null) {
+            if (loggedInUserId.equals(userId)) {
+                User user = userService.selectUserById(userId);
+                model.addAttribute("user",user);
+                return "/mypage";
+            } else {
+                model.addAttribute("message", "회원 정보와 일치하지 않습니다.");
+                return "redirect:/home";
+            }
         } else {
-            return "home";
+            model.addAttribute("message","로그인이 필요한 페이지입니다.");
+            return "redirect:/login";
         }
+    }
+
+    @GetMapping("/password_change/{userId}")
+    public String changePassword(@PathVariable String userId, Model model) {
+        User user = userService.selectUserById(userId);
+        model.addAttribute("user",user);
+        return "/password_change";
+    }
+
+    @PostMapping("/password_change/{id}")
+    public String changePassword(@PathVariable String id, @RequestParam(name="password") String password, @RequestParam(name="newPassword") String newPassword) {
+        User user = userService.selectUserById(id);
+
+        if (userService.matchesPassword(password, user.getPassword())) {
+            user.setPassword(newPassword);
+            userService.changePassword(user);
+            return "redirect:/user/{id}";
+        }
+        return "redirect:/home";
+    }
+
+    @PostMapping("/mypage_action/{id}")
+    public String updateUserInfo(@PathVariable String id, @RequestParam(name="nickname") String nickname, @RequestParam(name="intro") String intro) {
+        User user = userService.selectUserById(id);
+        user.setNickname(nickname);
+        user.setIntro(intro);
+        userService.updateUserInfo(user);
+        return "redirect:/user/{id}";
     }
 }
