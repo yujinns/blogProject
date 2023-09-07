@@ -14,7 +14,6 @@ public class Board {
     private String title;
     private String content;
     private String name;
-    private String pwd;
     private Timestamp createdtime;
     private int hitcnt;
     private Timestamp updatedtime;
