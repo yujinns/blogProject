@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -19,5 +20,14 @@
     <p>Please log in.</p>
     <a href="/login">Login</a>
 </div>
+<script th:if="${message}">
+    document.addEventListener("DOMContentLoaded", function() {
+        var messageFromController = /*[[${session.message}]]*/ "";
+        if (messageFromController !== "") {
+            console.log(messageFromController);
+            alert(messageFromController);
+        }
+    });
+</script>
 </body>
 </html>
