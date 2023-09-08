@@ -7,6 +7,6 @@
     </insert>
 
     <select id="selectGame" parameterType="java.lang.String" resultType="yujinns.blog.DTO.Blog">
-        select * from yujinns_user where game_id = #{game_id}
+        select path from steam where game_id = #{game_id}
     </select>
 </mapper>

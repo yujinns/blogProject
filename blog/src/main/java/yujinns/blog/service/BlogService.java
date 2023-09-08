@@ -2,6 +2,7 @@ package yujinns.blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import yujinns.blog.DTO.Blog;
 import yujinns.blog.mapper.BlogMapper;
 
 @Service
@@ -15,6 +16,6 @@ public class BlogService {
         blogMapper.makeBlog(blog_name);
     }
 
-    public void selectGame(String game_id ) {blogMapper.selectGame(game_id);}
+    public Blog selectGame(String game_id ) { return blogMapper.selectGame(game_id);}
 
 }
