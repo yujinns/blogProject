@@ -10,6 +10,7 @@ import yujinns.blog.service.UserService;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+
 @Controller
 public class UserController {
 
@@ -46,7 +47,7 @@ public class UserController {
         return "userlist";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/registerAction")
     public String signup(User user) {
         userService.insertUser(user);
         return "redirect:/home";
@@ -103,15 +104,15 @@ public class UserController {
     @GetMapping("/login")
     public String login() { return "loginForm"; }
 
-    @PostMapping("/login")
+    @PostMapping("/loginAction")
     public String login(@RequestParam String id, @RequestParam String password, HttpSession session) {
         User user = userService.selectUserById(id);
         if (user != null && userService.matchesPassword(password, user.getPassword())) {
             session.setAttribute("userId",user.getId());
             session.setAttribute("username",user.getNickname());
-            return "redirect:/home";
+            return "redirect:/user/" + id;
         } else {
-            return "redirect:/login_fail";
+            return "redirect:/index";
         }
     }
 
@@ -119,7 +120,7 @@ public class UserController {
     public String logout(HttpSession session) {
         session.removeAttribute("username");
         session.removeAttribute("userId");
-        return "redirect:/home";
+        return "redirect:/index";
     }
 
     @GetMapping("/login_success")
@@ -191,5 +192,15 @@ public class UserController {
         user.setIntro(intro);
         userService.updateUserInfo(user);
         return "redirect:/user/{id}";
+    }
+
+    @GetMapping("/elden_ring_detail")
+    public String elden() {
+        return "elden_ring_detail";
+    }
+
+    @GetMapping("/index")
+    public String index() {
+        return "index";
     }
 }

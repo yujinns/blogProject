@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <ul>
     <li><a href="/signup">회원가입 Page</a></li>
     <li><a href="/delete">회원탈퇴 Page</a></li>
@@ -20,14 +21,12 @@
     <p>Please log in.</p>
     <a href="/login">Login</a>
 </div>
-<script th:if="${message}">
-    document.addEventListener("DOMContentLoaded", function() {
-        var messageFromController = /*[[${session.message}]]*/ "";
-        if (messageFromController !== "") {
-            console.log(messageFromController);
-            alert(messageFromController);
-        }
-    });
+<script th:inline="javascript">
+    var alertMessage = /*[[${session.message}]]*/ '';
+    if (alertMessage) {
+        alert(alertMessage);
+    }
 </script>
+
 </body>
 </html>

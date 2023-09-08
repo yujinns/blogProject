@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>유진스팀</title>
+    <script src="../js/index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <video autoplay loop muted plays-inline class="background-clip">
+            <source src="../video/A Tribute to Elden Ring.webm" type="video/mp4">
+        </video>       
+        <div class="content">
+            <h1 id="service_n">유진스팀</h1>
+            <form id="frm1" name="loginForm" action="loginAction" method="post">    
+                <div id="login" class="LoginPage" style="display:none;">
+                  <!--아이디 입력-->
+                  <div class="id_wrap">
+                    <div class="id_block"></div>
+            
+                    <!--아이디 입력란-->
+                    <input class="login_id" name ="id" id="L_id" type="text" placeholder="아이디" maxlength="15"></input>
+                  </div>
+
+                  <br>
+                  <!--비밀번호 입력-->
+                  <div class="pwd_wrap">
+                    <div class="pwd_block"></div>
+            
+                    <!--비밀번호 입력란-->
+                    <input class="login_pwd" type="password" id="L_pwd" name="password" placeholder="비밀번호" maxlength="20"></input>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                    <!--아이디저장-->
+                  <div class="rememberId">
+            
+                    <!--아이디저장 체크박스-->
+                    <div class="save_id_box">
+                      <input type="hidden" id="save_id" name="save_id"></input>
+                    </div>
+            
+                    <!--아이디저장 텍스트-->
+                    <label for="save_id"></label>
+                  </div>
+            
+                  <!--로그인 버튼-->
+                    <a id="login_btt" class="login" href="#" onclick="return chk_Lform()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로그인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <br>
+                    <br>
+                    <br>
+                  <!--회원가입 버튼-->
+                  <div><a id="signup_bt" href="javascript:showSignup()" class="Register">&nbsp;&nbsp;&nbsp;&nbsp;회원가입&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
+                  <br>
+                  <br>
+                  <!--비밀번호찾기 버튼-->
+                  <div><a id="pwd_ch_bt" href="javascript:showFind()" class="FindPassword">비밀번호 찾기</a></div>
+                </div>
+              </form>
+            <a id="login_bt" href="javascript:showLogin()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로그인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+        
+        <form id="frm2" name="registerForm" action="registerAction" method="post">
+          <section id="signup" class="RegisterPage">
+            <h1 id="service_n2" style="white-space: nowrap;">유진스팀</h1>
+              <!--아이디 입력-->
+              <div class="register_id_wrap">
+                <input class="signup_id" name ="id" id="S_id" type="text" placeholder="아이디" maxlength="15"></input>
+              </div>
+              <br>
+              <!--중복확인 버튼-->
+              <div>
+                <a class="id_ck" href="#">중복확인</a>
+              </div>
+              <!--비밀번호 입력-->
+              <div class="register_pwd_wrap">
+                <input class="signup_pwd" type="password" id="S_pwd" name="password" placeholder="비밀번호" maxlength="25"></input>
+              </div>
+              <br>
+              <!--비밀번호 재입력-->
+              <div class="register_pwdcheck_wrap">
+                <input class="signup_pwd_ck" type="password" id="S_pwd_ck" name="pwdcheck" placeholder="비밀번호 재입력" maxlength="25"></input>
+              </div>
+              <br>
+              <!--이름 입력-->
+              <div class="register_name_wrap">
+                <div></div>
+                <input type="text" id="S_name" name="nickname" placeholder="이름" maxlength="10"></input>
+              </div>
+              <br>
+              <!--이메일 입력-->
+              <div class="register_email_wrap">
+                <div></div>
+                <input type="text" id="S_email" name="email" placeholder="이메일" maxlength="50"></input>
+              </div>
+              <br>
+              <!--비밀번호 확인 질문 입력-->
+              <div class="register_pwd_q_wrap">
+                <div></div>
+                <select class="signup_pwd_q" name="pwd_q">
+                  <option value="1">가장 좋아하는 연예인은?</option>
+                  <option value="2">가장 좋아하는 영화는?</option>
+                  <option value="3">가장 기억에 남는 장소는?</option>
+                  <option value="4">가장 친한 친구의 이름은?</option>
+                  <option value="5">당신의 보물 제1호는?</option>
+                </select>
+              </div>
+              <br>
+              <!--비밀번호 확인 답변 입력-->
+              <div class="register_pwd_a_wrap">
+                <input type="text" id="S_pwd_a" name="pwd_a" placeholder="답변 입력" maxlength="50"></input>
+              </div>
+              <br>
+              <!--자기소개 입력-->
+              <div class="register_intro_wrap">
+                <textarea name="intro" placeholder="하고싶은 말"></textarea>
+              </div>
+              <br>
+              <!--회원가입 버튼-->
+              <a href="#" class="signup" style=" top: 700px;" onclick="return chk_Sform()">회원가입</a>
+              <!--취소 버튼-->
+              <a href="javascript:hideSignup()" class="back">&nbsp;&nbsp;&nbsp;뒤로&nbsp;&nbsp;&nbsp;</a>
+          </section>
+        </form>
+        
+        <!--비밀번호 찾기-->
+        <section id="find_pwd" class="find_pwd">
+          <h1 id="service_n3" style="white-space: nowrap;">유진스팀</h1>
+            <!--아이디 입력-->
+            <div class="find_pwd_id_wrap">
+              <input class="find_id" name ="id" id="F_id" type="text" placeholder="아이디" maxlength="15"></input>
+            </div>
+            <br>
+            <!--비밀번호 확인 질문 입력-->
+            <div class="find_pwd_q_wrap">
+              <select class="find_pwd_q">
+                <option value="1">가장 좋아하는 연예인은?</option>
+                <option value="2">가장 좋아하는 영화는?</option>
+                <option value="3">가장 기억에 남는 장소는?</option>
+                <option value="4">가장 친한 친구의 이름은?</option>
+                <option value="5">당신의 보물 제1호는?</option>
+              </select>
+            </div>
+            <br>
+            <!--비밀번호 확인 답변 입력-->
+            <div class="find_pwd_a_wrap">
+              <input type="text" id="F_pwd_a" name="pwd_a" placeholder="답변 입력" maxlength="50"></input>
+            </div>
+            <br>
+            <br>
+            <!--비밀번호 찾기버튼-->
+            <a href="#" class="f_pwd" onclick="return chk_Fform()">비밀번호 찾기</a>
+            <!--취소 버튼-->
+            <a href="javascript:hideFindpwd()" class="back">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;뒤로&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </section>
+        </div>
+    </div>
+</body>
+</html>
