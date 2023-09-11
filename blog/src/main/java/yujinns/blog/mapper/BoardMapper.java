@@ -21,4 +21,6 @@ public interface BoardMapper {
     void list(PageRequest boardIdx);
 
     void updatehit(int boardIdx);
+
+    List<Board> selectByUserId(String userId);
 }

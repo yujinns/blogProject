@@ -21,7 +21,14 @@
 			ORDER BY boardIdx DESC
 	</select>
 
-
+	<select id="selectByUserId" parameterType="String" resultType="yujinns.blog.DTO.Board">
+		SELECT
+			boardIdx, title, content, name, createdtime, hitcnt
+		FROM
+			yujinns_board
+		WHERE
+			name = #{userId}
+	</select>
 
 	<select id="list" resultType="yujinns.blog.DTO.Board">
 		select

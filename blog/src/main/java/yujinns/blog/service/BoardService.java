@@ -23,7 +23,9 @@ public class BoardService {
     public List<Board> list() {
         return boardMapper.list();
     }
-
+    public List<Board> selectByUserId(String userId){
+        return boardMapper.selectByUserId(userId);
+    }
     public Board selectByIdx(int boardIdx) {
         return boardMapper.selectByIdx(boardIdx);
     }
