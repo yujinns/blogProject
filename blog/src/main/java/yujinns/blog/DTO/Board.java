@@ -2,6 +2,7 @@ package yujinns.blog.DTO;
 
 import lombok.*;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 
@@ -14,8 +15,8 @@ public class Board {
     private String title;
     private String content;
     private String name;
-    private Timestamp createdtime;
+    private Date createdtime;
     private int hitcnt;
-    private Timestamp updatedtime;
+    private Date updatedtime;
 
 }
