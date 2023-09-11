@@ -52,14 +52,14 @@
         <a href="#">엘든 링</a>
         <ul class="games">
           <li><a href="csgo_list.html">CS:GO</a></li>
-<!--          <li><a href="#">발더스 게이트 3</a></li>-->
-<!--          <li><a href="#">스타필드</a></li>-->
-<!--          <li><a href="#">데스티니 가디언즈</a></li>-->
-<!--          <li><a href="#">폴아웃 4</a></li>-->
-<!--          <li><a href="#">아머드 코어 6</a></li>-->
-<!--          <li><a href="#">사이버 펑크 2077</a></li>-->
-<!--          <li><a href="#">FC24</a></li>-->
-<!--          <li><a href="#">엘든 링</a></li>-->
+          <li><a href="#">발더스 게이트 3</a></li>
+          <li><a href="#">스타필드</a></li>
+          <li><a href="#">데스티니 가디언즈</a></li>
+          <li><a href="#">폴아웃 4</a></li>
+          <li><a href="#">아머드 코어 6</a></li>
+          <li><a href="#">사이버 펑크 2077</a></li>
+          <li><a href="#">FC24</a></li>
+          <li><a href="#">엘든 링</a></li>
           <li><a href="darksoul_3_list.html">다크 소울 3</a></li>
         </ul>
       </li>
@@ -161,12 +161,14 @@
     <div style="width: 911px; height: 0px; left: 16px; top: 41px; position: absolute; border: 0.50px #7C7C7C solid"></div>
 
     <!--글 목록 -->
-    <table style="color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
-      <tr th:each="post: ${boardList}">
-        <td th:text="${post.title}"><a th:href="@{/board/details/{boardIdx}(boardIdx=${board.boardIdx})}" th:text="${board.title}"></a></td>
-        <td th:text="${post.createdtime}"></td>
-      </tr>
-    </table>
+    <div style="position: relative; z-index: 1; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
+      <table>
+        <tr th:each="board: ${boardList}">
+          <td><a th:href="@{/board/details/{boardIdx}(boardIdx=${board.boardIdx})}" th:text="${board.title}"></a></td>
+          <td th:text="${board.createdtime}"></td>
+        </tr>
+      </table>
+    </div>
 
 
 <!--    <div th:each="board : ${boardList}" class = "board-item" style="color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">-->

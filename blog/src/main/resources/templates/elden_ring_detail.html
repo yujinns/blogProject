@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="detail.css">
+  <link rel="stylesheet" type="text/css" th:href="@{../css/detail.css}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a67b8eee2b.js" crossorigin="anonymous"></script>
   <title>제목</title>
 </head>
-<body style="background: url(image/elden_ring_bg.png) no-repeat center fixed; background-size: cover; height: 100vh;">
+<body style="background: url(../image/elden_ring_bg.png) no-repeat center fixed; background-size: cover; height: 100vh;">
 <!-- header 시작 -->
 <header>
 
@@ -36,12 +36,12 @@
     </div>
 
     <!-- 블로그 검색창 -->
-    <div style="width: 665.39px; height: 30px; left: 628px; top: 8px; position: absolute">
-      <div style="width: 665.39px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 10px"></div>
-      <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 640px; top: 7px; position: absolute; color: #171D25"></a></i>
-      <input placeholder="검색어를 입력하세요."
-             style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">
-      </input>
+<!--    <div style="width: 665.39px; height: 30px; left: 628px; top: 8px; position: absolute">-->
+<!--      <div style="width: 665.39px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 10px"></div>-->
+<!--      <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 640px; top: 7px; position: absolute; color: #171D25"></a></i>-->
+<!--      <input placeholder="검색어를 입력하세요."-->
+<!--             style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">-->
+<!--      </input>-->
   </nav>
 
   <!--블로그 카테고리 선택-->
@@ -64,7 +64,7 @@
   </ul>
 
   <!--서비스 이름-->
-  <div> <a href="index.html" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;">유진스팀</a></div>
+  <div> <a th:href="@{/home}" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;">유진스팀</a></div>
   </nav>
 </header>
 <!-- header 끝 -->
@@ -73,26 +73,32 @@
   <div class="write_block">
     <div class="writer_info_wrap">
       <img class="profile_photo" src="https://via.placeholder.com/48x48" />
-      <div class="profile_name">이지은</div>
-      <div class="point">▪</div>
-      <div class="write_date">2023.07.30 18:32</div>
-      <div class="By" style=>By</div>
-      <div class="profile_id">dlwlrma</div>
+      <div class="profile_name"><span th:text="${board.title}"></span></div>
+      <div class="point"></div>
+      <div class="write_date"><span th:text="${board.createdtime}"></span></div>
+      <div class="By">By</div>
+      <div class="profile_id"><span th:text="${session.userId}"></span></div>
     </div>
-    <div class="detail_title">드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-    <div class="detail_cont">게시글</div>
+
+<!--    <div class="detail_title">드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>-->
+    <div class="detail_title"><span th:text="${board.title}"></span></div>
+    <div class="detail_cont"><span th:text="${board.content}"></span></div>
+
     <div class="list_bt" >
       <div class="list_bt_block"></div>
-      <a href="#" class="list_text">목록</a>
+      <a th:href="@{/board}" class="list_text">목록</a>
     </div>
+
     <div class="update_bt" th:if="${session['userId']}">
       <div class="update_bt_block"></div>
-      <a href="#" class="update_text">수정</a>
+      <a th:href="@{/board/updateform}" class="update_text">수정</a>
     </div>
+
     <div class="delete_bt" th:if="${session['userId']}">
       <div class="delete_bt_block"></div>
-      <a href="#" class="delete_text">삭제</a>
+      <a th:href="@{/board/delete/{boardIdx}(boardIdx=${board.boardIdx})}" class="delete_text">삭제</a>
     </div>
+
     <div class="like_bt"><i class=""></i>
       <i class="fa-solid fa-thumbs-up"></i>
       <div class="like_count">60</div>
@@ -124,10 +130,11 @@
       <i class="fa-solid fa-thumbs-up"></i>
     </div>
   </div>
-  </div>
+
+  </main>
   <div class="scrollbar" id="style-2">
     <div class="force-overflow"></div>
   </div>
-  <main>
+<main>
 
 </body>
