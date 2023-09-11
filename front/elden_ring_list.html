@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="list.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -22,15 +22,27 @@
     <div style="width: 119px; height: 20px; left: 1743px; top: 13px; position: absolute">
 
       <!-- 회원가입 -->
-      <li>
-        <a href="register.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
-          회원가입
-        </a>
-      </li>
-
-      <!-- 로그인 -->
-      <li>
-        <a href="loginForm.html" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+      <ul style="list-style: none; display: flex; gap: 10px;">
+        <!-- 세션에 로그인 정보가 있는 경우 -->
+        <li th:if="${session['userId']}">
+          <a th:href="@{'/user/' + ${session['userId']}}" style="left: -94px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; background: #262d36; padding: 1px 5px;">
+            <span th:text="${session['username']}"></span>
+          </a>
+        </li>
+        <li th:if="${session['userId']}">
+          <a th:href="@{/logout}" style="left: -8px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; margin-left: 10px; white-space: nowrap; background: #262d36; padding: 1px 5px;">
+            로그아웃
+          </a>
+        </li>
+      </ul>
+      <!-- 세션에 로그인 정보가 없는 경우 -->
+<!--      <li th:unless="${session['userId']}">-->
+<!--        <a href="/register.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">-->
+<!--          회원가입-->
+<!--        </a>-->
+<!--      </li>-->
+      <li th:unless="${session['username']}">
+        <a th:href="@{/index}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px; background: #262d36; padding: 1px 5px;">
           로그인
         </a>
       </li>
@@ -40,10 +52,11 @@
     <div style="width: 665.39px; height: 30px; left: 628px; top: 8px; position: absolute">
       <div style="width: 665.39px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 10px"></div>
       <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 640px; top: 7px; position: absolute; color: #171D25"></a></i>
-      <input placeholder="검색어를 입력하세요." 
-        style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">  
+      <input placeholder="검색어를 입력하세요."
+             style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">
       </input>
-    </nav>
+    </div>
+
 
     <!--블로그 카테고리 선택-->
     <ul class="game_select">
@@ -53,7 +66,7 @@
           <li><a href="csgo_list.html">CS:GO</a></li>
           <li><a href="#">발더스 게이트 3</a></li>
           <li><a href="#">스타필드</a></li>
-          <li><a href="#">데스티니 가디언즈</a></li>
+          <li><a href="#">위쳐 3</a></li>
           <li><a href="#">폴아웃 4</a></li>
           <li><a href="#">아머드 코어 6</a></li>
           <li><a href="#">사이버 펑크 2077</a></li>
@@ -122,38 +135,42 @@
 
   <!--글 목록-->
   <section style="width: 943px; height: 264px; left: 485px; top: 339px; position: absolute">
-
-    <!--글 목록 블록-->
-    <div style="width: 943px; height: 264px; left: 0px; top: 0px; position: absolute; background: #0D131B; border: 0.50px black solid; opacity: 0.8;"></div>
+    <div class="board_list_wrap">
+    <!--글 목록 블록--> 
+      <div class="board_block">
+        <div class="board_list">
     <!--글 목록 타이틀-->
-    <div style="left: 16px; top: 15px; position: absolute; color: #7C7C7C; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      글제목</div>
-    <div style="left: 885px; top: 15px; position: absolute; text-align: right; color: #7C7C7C; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      작성일</div>
+    <div>
+     <div class="board_title">&nbsp;&nbsp;&nbsp;&nbsp;제목</div>
+      <div class="board_date">작성일</div>
+    </div>
     <!--글 목록 -->
-    <div style="left: 16px; top: 49px; position: absolute; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-    <div class="0730" style="left: 850px; top: 49px; position: absolute; text-align: right; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      2023.07.30</div>
-    <div style="left: 16px; top: 83px; position: absolute; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      트리가드부터 막혔습니다.....</div>
-    <div class="0730" style="left: 850px; top: 83px; position: absolute; text-align: right; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      2023.07.30</div>
-    <div style="left: 16px; top: 115px; position: absolute; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      운석지팡이하고 암석탄 먹었습니다 !</div>
-    <div class="0802" style="left: 850px; top: 115px; position: absolute; text-align: right; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      2023.08.02</div>
-    <div style="left: 16px; top: 150px; position: absolute; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      멀키트 클리어 !!</div>
-    <div class="0803" style="left: 850px; top: 150px; position: absolute; text-align: right; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      2023.08.03</div>
-    <div style="left: 16px; top: 184px; position: absolute; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      고드릭 클리어 !!</div>
-    <div class="0806" style="left: 850px; top: 184px; position: absolute; text-align: right; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      2023.08.06</div>
+      <div>
+        <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
+        <div class="board_date1">2023.07.30</div>
+      </div> 
+      <div>
+        <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
+        <div class="board_date1">2023.07.30</div>
+      </div>
+      <div>
+        <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
+        <div class="board_date1">2023.07.30</div>
+      </div>
+      <div>
+        <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
+        <div class="board_date1">2023.07.30</div>
+      </div>
+      <div>
+        <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
+        <div class="board_date1">2023.07.30</div>
+      </div>
 
+    </div>
+   </div>
+  </div>
     <!--페이지네이션-->
-    <div style="width: 911px; height: 0px; left: 16px; top: 41px; position: absolute; border: 0.50px #7C7C7C solid"></div>
+    <div style="width: 911px; height: 0px; left: 16px; top: 225px; position: absolute; border: 0.50px #7C7C7C solid"></div>
     <div style="width: 239px; height: 18px; left: 352px; top: 233px; position: absolute; font-size: 15px; color: #E0E1E6;">
       <div style="left: 219px; top: 0px; position: absolute; text-align: center;">>></div>
       <div style="left: 192px; top: 0px; position: absolute; text-align: center;">></div>
@@ -169,28 +186,37 @@
 
     <!--글 미리보기-->
   <section style="width: 943px; height: 197px; left: 485px; top: 613px; position: absolute">
-    <!--글 미리보기 블록-->
-    <div style="width: 943px; height: 197px; left: 0px; top: 0px; position: absolute; background: #0D131B; border: 0.50px black solid; opacity: 0.8;"></div>
-    <!--글 미리보기 제목-->
-    <div style="left: 16px; top: 10px; position: absolute; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-    <!--글 미리보기 날짜-->
-    <div class="0730" style="left: 16px; top: 35px; position: absolute; text-align: center; color: #7C7C7C; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      2023.07.30</div>
-    <!--글 미리보기 내용-->
-    <div class="Hello" style="left: 20px; top: 70px; position: absolute; color: #727476; font-size: 14px; font-family: Inter; font-weight: 400; word-wrap: break-word">Hello.</div>
-    <!--중간바-->
-    <div style="width: 911px; height: 0px; left: 16px; top: 157px; position: absolute; border: 0.15px #7C7C7C solid"></div>
-    <!-- 좋아요 아이콘-->
-    <div class="fa-solid fa-thumbs-up" style="width: 16px; height: 16px; left: 834px; top: 168px; position: absolute; transform-origin: 0 0; color: #7CC5FB"></div>
-    <!-- 좋아요 갯수-->
-    <div style="width: 24px; height: 20px; left: 850px; top: 167px; position: absolute; text-align: center; color: #7CC5FB; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+
+    <div class="preview_block">
+      <div class="preview_title">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
+      <div class="preview_date">&nbsp;&nbsp;&nbsp;&nbsp;2023.07.30</div>
+      <div class="preview_cont">&nbsp;&nbsp;&nbsp;&nbsp;Hello.</div>
+    <div class="preview_bar"></div>
+    <div class="like_n_comment">
+    <div class="fa-solid fa-thumbs-up" style="width: 16px; height: 16px; transform-origin: 0 0; text-align: center; color: #7CC5FB; float: left;"></div>
+    <div style="width: 24px; height: 20px; text-align: center; color: #7CC5FB; font-size: 15px; float: left;">
       60</div>
-    <!--댓글 아이콘-->
-    <div class="fa-solid fa-comment-dots" style="width: 19px; height: 19px; left: 890px; top: 168px; position: absolute; color: #727476"></div>
-    <!-- 댓글 갯수 -->
-    <div style="width: 24px; height: 20px; left: 905px; top: 167px; position: absolute; text-align: center; color: #727476; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+    <div class="fa-solid fa-comment-dots" style="width: 19px; height: 19px; color: #727476; float: left; margin-left: 15px;"></div>
+    <div style="width: 24px; height: 20px; text-align: center; color: #727476; font-size: 15px; float: left;">
       10</div>
+    </div>
+    </div>
+        <div class="preview_block">
+            <div class="preview_title">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
+            <div class="preview_date">&nbsp;&nbsp;&nbsp;&nbsp;2023.07.30</div>
+            <div class="preview_cont">&nbsp;&nbsp;&nbsp;&nbsp;Hello.</div>
+          <div class="preview_bar"></div>
+          <div class="like_n_comment">
+          <div class="fa-solid fa-thumbs-up" style="width: 16px; height: 16px; transform-origin: 0 0; text-align: center; color: #7CC5FB; float: left;"></div>
+          <div style="width: 24px; height: 20px; text-align: center; color: #7CC5FB; font-size: 15px; float: left;">
+            60</div>
+          <div class="fa-solid fa-comment-dots" style="width: 19px; height: 19px; color: #727476; float: left; margin-left: 15px;"></div>
+
+          <div style="width: 24px; height: 20px; text-align: center; color: #727476; font-size: 15px; float: left;">
+            10</div>
+          </div>
+        </div>
+    
   </section>
 
   <!--푸터-->
