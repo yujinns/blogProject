@@ -161,10 +161,10 @@
     <div style="width: 911px; height: 0px; left: 16px; top: 41px; position: absolute; border: 0.50px #7C7C7C solid"></div>
 
     <!--글 목록 -->
-    <table style="color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
-      <tr th:each="post: ${boardList}">
-        <td th:text="${post.title}"><a th:href="@{/board/details/{boardIdx}(boardIdx=${board.boardIdx})}" th:text="${board.title}"></a></td>
-        <td th:text="${post.createdtime}"></td>
+    <table style="position: relative; z-index: 1; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
+      <tr th:each="board: ${boardList}">
+        <td th:text="${board.title}"><a th:href="@{/board/details/{boardIdx}(boardIdx=${board.boardIdx})}" th:text="${board.title}"></a></td>
+        <td th:text="${board.createdtime}"></td>
       </tr>
     </table>
 
