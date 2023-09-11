@@ -10,7 +10,6 @@ import yujinns.blog.service.UserService;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-
 @Controller
 public class UserController {
 
@@ -110,7 +109,9 @@ public class UserController {
         if (user != null && userService.matchesPassword(password, user.getPassword())) {
             session.setAttribute("userId",user.getId());
             session.setAttribute("username",user.getNickname());
-            return "redirect:/user/" + id;
+//            return "redirect:/user/" + id;
+            session.setAttribute("intro", user.getIntro());
+            return "redirect:/board";
         } else {
             return "redirect:/index";
         }

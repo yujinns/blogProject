@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="../css/loginForm.css">
+  <link rel="stylesheet" type="text/css" href="css/loginForm.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <title>로그인</title>
 </head>
-<body style="background: url(../images/main_background.png) no-repeat center fixed; background-size: cover; height: 100vh;">
+<body style="background: url(image/main_background.png) no-repeat center fixed; background-size: cover; height: 100vh;">
 
   <form name="loginForm" th:action="@{/login}" method="post">
     
@@ -61,7 +61,7 @@
 
       <!--비밀번호 찾기-->
       <div><a href="#" class="FindPassword">비밀번호 찾기</a></div>
-      <div><a href="registerFrom.html" class="Register">회원가입</a></div>
+      <div><a th:href="@{/signup}" class="Register">회원가입</a></div>
     </section>
   </form>
   <script th:inline="javascript">

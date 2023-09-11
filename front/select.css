@@ -1,0 +1,129 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding:0px;    
+}
+
+html {
+    overflow: hidden;
+  }
+
+.body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    background: url(image/main_background.png) no-repeat center fixed; 
+    background-size: cover; 
+    height: 100vh;
+}
+
+.section {
+    width: 1920px; 
+    height: 1080px; 
+    top:-75px; 
+    position: relative; 
+    background: rgba(22, 25, 32, 0); 
+    border: 0.50px black solid;
+}
+
+.section img {
+    width: 1920px; 
+    height: 1080px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute;
+}
+
+.cs_go {
+    width: 259px; 
+    height: 378px; 
+    left: 257px; 
+    top: 65px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.baldurs_gate_3 {
+    width: 252px; 
+    height: 378px; 
+    left: 551px; 
+    top: 65px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.starfield {
+    width: 252px; 
+    height: 378px; 
+    left: 838px; 
+    top: 65px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.witcher_3 {
+    width: 252px; 
+    height: 378px; 
+    left: 1125px; 
+    top: 65px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.armor_6 {
+    width: 252px; 
+    height: 378px; 
+    left: 263px; 
+    top: 478px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.fallout_4 {
+    width: 252px; 
+    height: 378px; 
+    left: 1412px; 
+    top: 65px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.cyber2077 {
+    width: 252px; 
+    height: 378px; 
+    left: 550px; 
+    top: 478px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.fc24 {
+    width: 252px; 
+    height: 378px; 
+    left: 837px; 
+    top: 478px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.elden_ring {
+    width: 252px; 
+    height: 378px; 
+    left: 1125px; 
+    top: 478px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
+
+.darksoul_3 {
+    width: 252px; 
+    height: 378px; 
+    left: 1412px; 
+    top: 478px; 
+    position: absolute; 
+    box-shadow: 5px 5px 10px #0C0C0C;
+}
