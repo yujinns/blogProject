@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="KR">
+<html lang="KR" xmlns:th="http://www.w3.org/1999/XSL/Transform">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,14 +22,14 @@
 
       <!-- 회원가입 -->
       <li>
-        <a href="signup.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
+        <a th:href="@{/signup}" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
           회원가입
         </a>
       </li>
 
       <!-- 로그인 -->
       <li>
-        <a href="loginForm.html" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+        <a th:href="@{/loginForm}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
           로그인
         </a>
       </li>
@@ -85,11 +85,11 @@
       <div class="list_bt_block"></div>
       <a href="#" class="list_text">목록</a>
     </div>
-    <div class="update_bt">
+    <div class="update_bt" th:if="${session['userId']}">
       <div class="update_bt_block"></div>
       <a href="#" class="update_text">수정</a>
     </div>
-    <div class="delete_bt">
+    <div class="delete_bt" th:if="${session['userId']}">
       <div class="delete_bt_block"></div>
       <a href="#" class="delete_text">삭제</a>
     </div>
@@ -129,4 +129,5 @@
     <div class="force-overflow"></div>
   </div>
   <main>
+
 </body>
