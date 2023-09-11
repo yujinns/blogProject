@@ -1,0 +1,500 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding:0px;    
+}
+
+html {
+    /* overflow: hidden; */
+  }
+
+.body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.bg {
+    background-image: url('image/main_background.png');
+    height: 100vh;
+    width: 100%;
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+.bg::after {
+    content: '';
+    display:block;
+    padding: 15%;
+}
+
+.game_select {
+    /* width: 800px; */
+    overflow: hidden;
+    /* margin: 150px auto; */
+}
+
+.game_select > li {
+    float: left; 
+    text-align: center; 
+    background-color: #171D25;
+    width: 10%; 
+    line-height: 40px; 
+    left: 256px; 
+    top: 3px; 
+    position: absolute; 
+    background-color: #171D25; 
+    color: #E0E1E6; 
+    font-size: 20px; 
+    font-weight: 400;
+}
+
+.game_select a {
+    color: #E0E1E6; 
+}
+
+.games {
+    height: 0;
+    overflow:hidden;
+}
+
+.games > li {
+    background-color: #171D25;
+    line-height: 40px;
+    text-align: center;  
+    color: #E0E1E6; 
+    font-size: 20px; 
+}
+
+.game_select > li:hover {
+    background-color: #171D25;
+}
+
+.game_select > li:hover .games {
+    height: 400px;
+    transition-duration: 1s;
+}
+
+.write_block {
+    width: 943px; 
+    height: 904px;
+    left: 489px; 
+    top: 64px; 
+    position: absolute; 
+    background: #0D131B; 
+    border: 0.50px black solid;
+    opacity: 0.8;
+}
+
+.writer_info_wrap {
+    width: 240px; 
+    height: 48px; 
+    left: 34px; 
+    /*514 */
+    top: 34px; 
+    position: absolute;
+}
+
+.profile_photo {
+    width: 48px; 
+    height: 48px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    border-radius: 9999px;
+}
+
+.profile_name {
+    width: 55px; 
+    height: 20px; 
+    left: 50px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #E0E1E6; 
+    font-size: 15px;
+}
+
+.point {
+    width: 10px; 
+    height: 20px; 
+    left: 102px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #E0E1E6; 
+    font-size: 15px;
+}
+
+.write_date {
+    width: 128px; 
+    height: 20px; 
+    left: 112px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #6E6F70; 
+    font-size: 15px;
+}
+
+.By {
+    width: 55px; 
+    height: 20px; 
+    left: 40px; 
+    top: 28px; 
+    position: absolute; 
+    text-align: center; 
+    color: #E0E1E6; 
+    font-size: 15px;
+}
+
+.profile_id {
+    width: 85px; 
+    height: 20px; 
+    left: 67px; 
+    top: 28px; 
+    position: absolute; 
+    text-align: center; 
+    color: #6E6F70; 
+    font-size: 15px;
+}
+
+.detail_title {
+    width: 787px; 
+    height: 34px; 
+    left: 82px; 
+    top: 93px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    font-size: 30px;
+    background-color: inherit;
+    border: 0;
+}
+
+.detail_cont {
+    width: 790px; 
+    height: 517px; 
+    left: 82px; 
+    top: 143px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    font-size: 15px;
+    background-color: inherit;
+    border: 0;
+    resize: none;
+}
+
+.list_bt {
+    width: 37px; 
+    height: 20px; 
+    left: 462px; 
+    top: 698px; 
+    position: absolute;
+}
+
+.list_bt_block {
+    width: 37px; 
+    height: 20px; 
+    left: 0px; 
+    top: 0px; 
+    position: 
+    absolute; background: #E0E1E6; 
+    border-radius: 9px;
+}
+
+.list_text {
+    left: 9px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #161920; 
+    font-size: 10px; 
+    font-weight: 500;
+}
+
+.update_bt {
+    width: 37px; 
+    height: 20px; 
+    left: 420px; 
+    top: 698px; 
+    position: absolute;
+}
+
+.update_bt_block {
+    width: 37px; 
+    height: 20px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #E0E1E6; 
+    border-radius: 9px;
+}
+
+.update_text {
+    left: 9px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #161920; 
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.delete_bt {
+    width: 37px; 
+    height: 20px; 
+    left: 504px; 
+    top: 698px; 
+    position: absolute;
+}
+
+.delete_bt_block {
+    width: 37px; 
+    height: 20px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #E0E1E6; 
+    border-radius: 9px;
+}
+
+.delete_text {
+    left: 9px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #161920; 
+    font-size: 10px; 
+    font-weight: 500; 
+}
+
+.like_bt {
+    width: 40px; 
+    height: 22px; 
+    left: 812px; 
+    top: 696px; 
+    position: absolute;
+}
+
+.like_bt i {
+    width: 16px; 
+    height: 16px; 
+    left: 0px; 
+    top: 2px; 
+    position: absolute; 
+    transform-origin: 0 0; 
+    color: #7CC5FB;
+}
+
+.like_count {
+    width: 24px; 
+    height: 20px; 
+    left: 16px; 
+    top: 2px; 
+    position: absolute; 
+    text-align: center; 
+    color: #7CC5FB; 
+    font-size: 15px;
+}
+
+.comment_icon {
+    width: 44px; 
+    height: 22px; 
+    left: 872px; 
+    top: 696px; 
+    position: absolute;
+}
+
+.comment_icon i {
+    width: 19px; 
+    height: 19px; 
+    left: 4px; 
+    top: 2px; 
+    position: absolute; 
+    color: #727476;
+}
+
+.comment_count {
+    width: 24px; 
+    height: 20px; 
+    left: 20px; 
+    top: 2px; 
+    position: absolute; 
+    text-align: center; 
+    color: #727476; 
+    font-size: 15px;
+}
+
+.post_underbar {
+    width: 911px; 
+    height: 0px; 
+    left: 25px; 
+    top: 726px; 
+    position: absolute; 
+    border: 0.15px #7C7C7C solid;
+}
+
+.comment_write_wrap {
+    width: 900.50px; 
+    height: 54px; 
+    left: 34px; 
+    top: 742px; 
+    position: absolute;
+}
+
+.comment_photo {
+    width: 48px; 
+    height: 48px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    border-radius: 9999px;
+}
+
+.comment_write {
+    width: 765px; 
+    height: 22px; 
+    left: 68px; 
+    top: 5px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    font-size: 15px;
+    background-color: inherit;
+    border: 0;
+    outline: 0;
+}
+
+.comment_uderbar {
+    width: 832.50px; 
+    height: 0px; 
+    left: 68px; 
+    top: 26.50px; 
+    position: absolute; 
+    border: 0.50px #7C7C7C solid;
+}
+
+.comment_write_bt {
+    width: 44px; 
+    height: 20px; 
+    left: 838px; 
+    top: 34px; 
+    position: absolute;
+}
+
+.comment_write_bt_block {
+    width: 44px; 
+    height: 19.64px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #E0E1E6; 
+    border-radius: 9px;
+    font-size: 11px;
+}
+
+.comment_write_text {
+    width: 26px; 
+    height: 20px; 
+    left: 10px; 
+    top: 3px; 
+    position: absolute; 
+    text-align: center; 
+    color: #161920; 
+    font-size: 10px; 
+    font-weight: 500;
+}
+
+.comment {
+    width: 766px; 
+    height: 70px; 
+    left: 34px; 
+    top: 806px; 
+    position: absolute;
+}
+
+.other_comment_photo {
+    width: 48px; 
+    height: 48px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    border-radius: 9999px;
+}
+
+.other_user {
+    width: 99px; 
+    height: 20px;
+    left: 52px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #E0E1E6; 
+    font-size: 15px;
+}
+
+.comment_cont {
+    width: 701px; 
+    height: 20px; 
+    left: 65px; 
+    top: 28px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    font-size: 15px;
+}
+
+.comment_date {
+    width: 121px; 
+    height: 20px; 
+    left: 142px; 
+    top: 4px; 
+    position: absolute; 
+    text-align: center; 
+    color: #6E6F70; 
+    font-size: 15px;
+}
+
+.comment_like_count {
+    width: 33px; 
+    height: 20px; 
+    left: 79px; 
+    top: 50px; 
+    position: absolute; 
+    text-align: center; 
+    color: #7CC5FB; 
+    font-size: 12px;
+}
+
+.comment i {
+    width: 10px; 
+    height: 10px; 
+    left: 63px; 
+    top: 49px; 
+    position: absolute; 
+    color: #7CC5FB;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #000000;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	background-color: #2c2c2c;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #2c2c2c;
+}
+
+@media screen and (max-width: 768px) {
+
+
+}
