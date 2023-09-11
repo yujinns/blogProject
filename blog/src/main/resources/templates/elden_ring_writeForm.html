@@ -118,14 +118,14 @@ html {
 
       <!-- 회원가입 -->
       <li>
-        <a href="register.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
+        <a th:href="@{/signup}" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
           회원가입
         </a>
       </li>
 
       <!-- 로그인 -->
       <li>
-        <a href="loginForm.html" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+        <a th:href="@{/login}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
           로그인
         </a>
       </li>
@@ -138,7 +138,7 @@ html {
       <input placeholder="검색어를 입력하세요." 
         style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">  
       </input>
-    </nav>
+  </nav>
 
     <!--블로그 카테고리 선택-->
     <ul class="game_select">
@@ -173,19 +173,22 @@ html {
         <div style="width: 692px; height: 528px; left: 0px; top: 0px; position: absolute; background: #0D131B; border: 0.50px black solid"></div>
         <div style="width: 152px; height: 48px; left: 25px; top: 20px; position: absolute">
           <div style="width: 85px; height: 20px; left: 67px; top: 28px; position: absolute; text-align: center; color: #6E6F70; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-            dlwlrma</div>
+            <span th:text="${session.userId}"></span>
+            <input type="hidden" name="name" th:value="${session.userId}" />
+          </div>
           <div style="width: 55px; height: 20px; left: 40px; top: 28px; position: absolute; text-align: center; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
             By</div>
           <div style="width: 55px; height: 20px; left: 50px; top: 4px; position: absolute; text-align: center; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-            이지은</div>
+            <span th:text="${session.username}"></span>
+          </div>
           <img style="width: 48px; height: 48px; left: 0px; top: 0px; position: absolute; border-radius: 9999px" src="/image/아이유.png" />
         </div>
 
         <!--글 제목-->
-        <input type="text" placeholder="제목을 입력하세요." style="width: 530px; height: 34px; left: 73px; top: 85px; position: absolute; background: transparent; color:#E0E1E6; font-size: 30px; border: 0px; outline: none;"></div>
+        <input type="text" id="title" name="title" placeholder="제목을 입력하세요." style="width: 530px; height: 34px; left: 73px; top: 85px; position: absolute; background: transparent; color:#E0E1E6; font-size: 30px; border: 0px; outline: none;"></div>
         <!-- <div style="width: 563px; height: 0px; left: 700px; top: 119px; position: absolute; border: 0.50px #7C7C7C solid"></div> -->
         <!--글 내용-->
-        <textarea placeholder="내용을 입력하세요." style="width: 588px; height: 323px; left: 700px; top: 355px; position: absolute; background: transparent; resize: none; outline: none;; border:0; color: #E0E1E6; font-size: 20px;"></textarea>
+        <textarea id="content" name="content" placeholder="내용을 입력하세요." style="width: 588px; height: 323px; left: 700px; top: 355px; position: absolute; background: transparent; resize: none; outline: none;; border:0; color: #E0E1E6; font-size: 20px;"></textarea>
 
         <div style="width: 44px; height: 20px; left: 1230px; top: 707px; position: absolute">
           <input type="submit" value="작성" style="width: 44px; height: 19.64px; left: 0px; top: -4px; position: absolute; background: #E0E1E6; border-radius: 9px; font-size: 10px;"></input>
