@@ -4,7 +4,6 @@
 
 <mapper namespace="yujinns.blog.mapper.BoardMapper">
 
-
 	<select id="select" resultType="int">
 		SELECT 1
 		FROM
@@ -49,7 +48,6 @@
 				#{title},
 				#{content},
 				#{name},
-				#{pwd},
 				SYSTIMESTAMP
 			)
 	</insert>
@@ -67,6 +65,7 @@
 			WHERE
 				boardIdx = #{boardIdx}
 	</update>
+
 	<update id="updatehit" parameterType="int">
 		UPDATE yujinns_board
 
@@ -76,6 +75,7 @@
 		WHERE
 			boardIdx = #{boardIdx}
 	</update>
+
 	<delete id="deleteBoard" parameterType="Board">
 			DELETE FROM yujinns_board
 			WHERE
