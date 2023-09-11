@@ -14,6 +14,7 @@ import yujinns.blog.service.BoardService;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -22,13 +23,10 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
-
-    @GetMapping("/list/{userId}")
-    public String list(String userId, Model model) {
+    @GetMapping("")
+    public String index(HttpSession session, Model model) {
+        String userId = (String) session.getAttribute("userId");
+        String username = (String) session.getAttribute("username");
         List<Board> list = boardService.selectByUserId(userId);
         model.addAttribute("boardList", list);
         return "elden_ring_list";
@@ -101,7 +99,7 @@ public class BoardController {
     public String writeAction(Board dto) {
         System.out.println("yujinns board::"+ dto);
         boardService.writeAction(dto);
-        return "redirect:/board/list";
+        return "redirect:/board";
     }
 
     @GetMapping("/updateform")
