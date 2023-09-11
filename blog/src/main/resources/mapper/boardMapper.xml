@@ -48,7 +48,7 @@
 				#{title},
 				#{content},
 				#{name},
-				SYSTIMESTAMP
+				SYSDATE
 			)
 	</insert>
 
@@ -60,7 +60,7 @@
 			title = #{title},
 			name = #{name},
 			content = #{content},
-			updatedtime = systimestamp
+			updatedtime = SYSDATE
 
 			WHERE
 				boardIdx = #{boardIdx}
