@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <!-- <script src="main.js"></script> -->
+    <title>유진스팀</title>
+</head>
+<body style="background: url(image/image421.png) no-repeat center fixed; background-size: cover; height: 100vh;" >
+    <!-- header 시작 -->
+<header>
+    <video autoplay loop muted plays-inline class="background-clip">
+        <source src="video/webm_page_bg_koreana.webm" type="video/mp4">
+    </video>
+    <!-- 헤더 블록 -->
+  <nav>
+    <div style="width: 100%; height: 47px; left: 0px; top: 0px; position: absolute; background: #171D25"></div>
+    <div style="width: 119px; height: 20px; left: 1743px; top: 13px; position: absolute">
+
+      <!-- 회원가입 -->
+      <ul style="list-style: none; display: flex; gap: 10px;">
+        <li th:if="${session['userId']}">
+          <a th:href="@{#}" style="left: -280px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; background: #262d36; padding: 1px 5px;">
+            <span>블로그 생성</span>
+          </a>
+        </li>
+        <!-- 세션에 로그인 정보가 있는 경우 -->
+        <li th:if="${session['userId']}">
+          <a th:href="@{'/user/' + ${session['userId']}}" style="left: -94px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; background: #262d36; padding: 1px 5px;">
+            <span th:text="${session['username']}"></span>
+          </a>
+        </li>
+        <li th:if="${session['userId']}">
+          <a th:href="@{/logout}" style="left: -8px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; margin-left: 10px; white-space: nowrap; background: #262d36; padding: 1px 5px;">
+            로그아웃
+          </a>
+        </li>
+      </ul>
+      <!-- 세션에 로그인 정보가 없는 경우 -->
+<!--      <li th:unless="${session['userId']}">-->
+<!--        <a href="/register.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">-->
+<!--          회원가입-->
+<!--        </a>-->
+<!--      </li>-->
+      <li th:unless="${session['username']}">
+        <a th:href="@{/index}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+          로그인
+        </a>
+      </li>
+    </div>
+
+    <!-- 블로그 검색창 -->
+    <div style="width: 665.39px; height: 30px; left: 628px; top: 8px; position: absolute">
+      <div style="width: 665.39px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 10px"></div>
+      <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 640px; top: 7px; position: absolute; color: #171D25"></a></i>
+      <input placeholder="검색어를 입력하세요."
+             style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">
+      </input>
+    </div>
+
+
+    <!--블로그 카테고리 선택-->
+    <ul class="game_select">
+      <li>
+        <a href="#">게임 선택</a>
+        <ul class="games">
+          <li><a href="csgo_list.html">CS:GO</a></li>
+          <li><a href="#">발더스 게이트 3</a></li>
+          <li><a href="#">스타필드</a></li>
+          <li><a href="#">위쳐 3</a></li>
+          <li><a href="#">폴아웃 4</a></li>
+          <li><a href="#">아머드 코어 6</a></li>
+          <li><a href="#">사이버 펑크 2077</a></li>
+          <li><a href="#">FC24</a></li>
+          <li><a href="#">엘든 링</a></li>
+          <li><a href="darksoul_3_list.html">다크 소울 3</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!--서비스 이름-->
+    <div> <a href="index.html" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;">유진스팀</a></div>
+  </nav>
+</header>
+<!-- header 끝 -->
+<main>
+  <div class="slider">
+    <a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/"><img src="image/01.webp" alt="Image 1"></a>
+    <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/"><img src="image/02.png" alt="Image 2"></a>
+    <a href="https://store.steampowered.com/app/1716740/Starfield/"><img src="image/03.png" alt="Image 3"></a>
+    <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/"><img src="image/04.png" alt="Image 4"></a>
+    <a href="https://store.steampowered.com/app/377160/Fallout_4/"><img src="image/05.png" alt="Image 5"></a>
+    <a href="https://store.steampowered.com/app/1888160/__VI/"><img src="image/06.png" alt="Image 6"></a>
+    <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/"><img src="image/07.png" alt="Image 7"></a>
+    <a href="https://store.steampowered.com/app/2195250/EA_SPORTS_FC_24/"><img src="image/08.png" alt="Image 8"></a>
+    <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/"><img src="image/09.png" alt="Image 9"></a>
+    <a href="https://store.steampowered.com/app/374320/DARK_SOULS_III/"><img src="image/10.png" alt="Image 10"></a>
+</div>
+  <section>
+    <div class="category_select">
+        <a href="#">CS:GO</a>
+        <a href="#">발더스 게이트 3</a>
+        <a href="#">스타필드</a>
+        <a href="#">위쳐 3</a>
+        <a href="#">폴아웃 4</a>
+        <a href="#">아머드 코어 6</a>
+        <a href="#">사이버 펑크 2077</a>
+        <a href="#">FC24</a>
+        <a href="#">엘든 링</a>
+        <a href="#">다크 소울 3</a>
+    </div>
+    <div class="blog_list_wrap">
+        <div class="blog_list">
+            <div>
+                <img src="image/블로그섬네일10.png"/>
+                <span class="blog_name">베르나르 사르트르 블로그<br></span>
+                <span class="blog_intro">거인의 어깨에 올라선 난쟁이처럼 우리는, 고대인들 보다 더 많은 것을 알 수 있다. </span>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="footer">
+    <div class="page">
+        <a class="prev"><</a>
+        <a class="num">1</a>
+        <a class="num">2</a>
+        <a class="num">3</a>
+        <a class="num">4</a>
+        <a class="num">5</a>
+        <a class="next">></a>
+        <br>
+        <a href="#" class="top">맨 위로</a>
+    </div>
+</div>
+</main>
+</body>
+<script>
+    $('.slider').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        adaptiveHeight: true
+    });
+  </script>
+</html>
+  
