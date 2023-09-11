@@ -31,20 +31,20 @@
 
       <!-- 로그인 -->
       <li>
-        <a href="loginForm.html" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+        <a th:href="@{/loginForm}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
           로그인
         </a>
       </li>
     </div>
 
     <!-- 블로그 검색창 -->
-    <div style="width: 665.39px; height: 30px; left: 628px; top: 8px; position: absolute">
-      <div style="width: 665.39px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 10px"></div>
-      <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 640px; top: 7px; position: absolute; color: #171D25"></a></i>
-      <input placeholder="검색어를 입력하세요."
-        style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">
-      </input>
-    </nav>
+<!--    <div style="width: 665.39px; height: 30px; left: 628px; top: 8px; position: absolute">-->
+<!--      <div style="width: 665.39px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 10px"></div>-->
+<!--      <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 640px; top: 7px; position: absolute; color: #171D25"></a></i>-->
+<!--      <input placeholder="검색어를 입력하세요."-->
+<!--        style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">-->
+<!--      </input>-->
+  </nav>
 
     <!--블로그 카테고리 선택-->
     <ul class="game_select">
@@ -52,21 +52,21 @@
         <a href="#">엘든 링</a>
         <ul class="games">
           <li><a href="csgo_list.html">CS:GO</a></li>
-          <li><a href="#">발더스 게이트 3</a></li>
-          <li><a href="#">스타필드</a></li>
-          <li><a href="#">데스티니 가디언즈</a></li>
-          <li><a href="#">폴아웃 4</a></li>
-          <li><a href="#">아머드 코어 6</a></li>
-          <li><a href="#">사이버 펑크 2077</a></li>
-          <li><a href="#">FC24</a></li>
-          <li><a href="#">엘든 링</a></li>
+<!--          <li><a href="#">발더스 게이트 3</a></li>-->
+<!--          <li><a href="#">스타필드</a></li>-->
+<!--          <li><a href="#">데스티니 가디언즈</a></li>-->
+<!--          <li><a href="#">폴아웃 4</a></li>-->
+<!--          <li><a href="#">아머드 코어 6</a></li>-->
+<!--          <li><a href="#">사이버 펑크 2077</a></li>-->
+<!--          <li><a href="#">FC24</a></li>-->
+<!--          <li><a href="#">엘든 링</a></li>-->
           <li><a href="darksoul_3_list.html">다크 소울 3</a></li>
         </ul>
       </li>
     </ul>
 
     <!--서비스 이름-->
-    <div> <a href="index.html" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;">유진스팀</a></div>
+    <div> <a th:href="@{/home}" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;">유진스팀</a></div>
   </nav>
 </header>
 <!-- header 끝 -->
@@ -80,25 +80,27 @@
     <!--프로필 사진-->
     <img style="width: 130px; height: 130px; left: 54px; top: 16px; position: absolute; border-radius: 9999px" src="../image/아이유.png" />
     <!--사용자 이름-->
-    <div style="width: 125px; height: 20px; left: 200px; top: 62px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      이지은</div>
+    <div name="username" style="width: 125px; height: 20px; left: 200px; top: 62px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+      <span th:text="${session.username}"></span>
+    </div>
     <!--사용자 수정 아이콘-->
     <div class="fa-solid fa-user-pen" style="width: 16px; height: 14px; left: 300px; top: 66px; position: absolute; color: #E0E1E6"></div>
     <!--사용자 소개-->
     <div style="width: 470px; height: 20px; left: 212px; top: 99px; position: absolute; color: #E0E1E6; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-      노래만 해봐서 게임을 잘 못합니다. 즐겜충이에요.</div>
+      <span th:text="${session.intro}"></span>
+    </div>
     <!--카테고리-->
     <div style="width: 911px; height: 0px; left: 16px; top: 162px; position: absolute; border: 0.50px #7C7C7C solid"></div>
     <div><a href="#" style="width: 125px; height: 20px; left: 79px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">
       전체</a></div>
-    <div><a href="#" style="width: 125px; height: 20px; left: 244px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">
-      일상</a></div>
-    <div><a href="#" style="width: 125px; height: 20px; left: 409px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">
-      일지</a></div>
-    <div><a href="#" style="width: 125px; height: 20px; left: 574px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">
-      공략/팁</a></div>
-    <div><a href="#" style="width: 125px; height: 20px; left: 739px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">
-      방명록</a></div>
+<!--    <div><a href="#" style="width: 125px; height: 20px; left: 244px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">-->
+<!--      일상</a></div>-->
+<!--    <div><a href="#" style="width: 125px; height: 20px; left: 409px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">-->
+<!--      일지</a></div>-->
+<!--    <div><a href="#" style="width: 125px; height: 20px; left: 574px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">-->
+<!--      공략/팁</a></div>-->
+<!--    <div><a href="#" style="width: 125px; height: 20px; left: 739px; top: 168px; position: absolute; text-align: center; color: #E0E1E6; font-size: 18px;">-->
+<!--      방명록</a></div>-->
   </section>
 
   <!--글쓰기 및 검색창-->
@@ -116,7 +118,8 @@
     <!--글쓰기-->
     <div style="width: 496px; height: 30px; left: 50px; top: 17px; position: absolute">
       <div style="width: 88px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 5px"></div>
-      <div><a th:href="@{/board/writeform}" style="width: 475.94px; height: 27.33px; left: 18px; top: 5px; position: absolute; color: #E0E1E6; font-size: 15px; font-weight: 400;">
+      <div th:if="${session['userId']}">
+        <a th:href="@{/board/writeform}" style="width: 475.94px; height: 27.33px; left: 18px; top: 5px; position: absolute; color: #E0E1E6; font-size: 15px; font-weight: 400;">
         글쓰기</a></div>
     </div>
   </section>
@@ -132,10 +135,6 @@
     <div style="left: 885px; top: 15px; position: absolute; text-align: right; color: #7C7C7C; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
       작성일</div>
 
-    <!--글 목록 -->
-    <div th:each="board : ${boardList}" class = "board-item">
-      <a th:href="@{/board/details/{boardIdx}(id=${board.boardIdx})}" th:text="${board.title}"></a>
-    </div>
 
 <!--    <div style="left: 16px; top: 49px; position: absolute; color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">-->
 <!--      드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>-->
@@ -160,6 +159,20 @@
 
     <!--페이지네이션-->
     <div style="width: 911px; height: 0px; left: 16px; top: 41px; position: absolute; border: 0.50px #7C7C7C solid"></div>
+
+    <!--글 목록 -->
+    <table style="color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
+      <tr th:each="post: ${boardList}">
+        <td th:text="${post.title}"><a th:href="@{/board/details/{boardIdx}(boardIdx=${board.boardIdx})}" th:text="${board.title}"></a></td>
+        <td th:text="${post.createdtime}"></td>
+      </tr>
+    </table>
+
+
+<!--    <div th:each="board : ${boardList}" class = "board-item" style="color: #E0E1E6; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">-->
+<!--      <div style="float: left;"><a th:href="@{/board/details/{boardIdx}(boardIdx=${board.boardIdx})}" th:text="${board.title}"></a></div>-->
+<!--      <div style="float: right;"><span th:text="${board.createdtime}"></span></div>-->
+<!--    </div>-->
     <div style="width: 239px; height: 18px; left: 352px; top: 233px; position: absolute; font-size: 15px; color: #E0E1E6;">
       <div style="left: 219px; top: 0px; position: absolute; text-align: center;">>></div>
       <div style="left: 192px; top: 0px; position: absolute; text-align: center;">></div>
