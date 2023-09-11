@@ -119,11 +119,17 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
-    @GetMapping("/deleteBoard")
-    public String deleteBoard( Board dto) throws Exception{
-        System.out.println("deleteBoard::"+dto);
-        Board result = boardService.deleteBoard(dto);
-        return (result != null)?"redirect:/board/list":"/errorDelete";
+//    @GetMapping("/deleteBoard")
+//    public String deleteBoard(Board dto) throws Exception{
+//        System.out.println("deleteBoard::"+dto);
+//        Board result = boardService.deleteBoard(dto);
+//        return (result != null)?"redirect:/board/list":"/errorDelete";
+//    }
+
+    @GetMapping("delete/{id}")
+    public String deleteById(int id) {
+        Board board = boardService.deleteBoard(id);
+        return "redirect:/board";
     }
 
 }
