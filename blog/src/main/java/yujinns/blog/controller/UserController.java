@@ -109,7 +109,8 @@ public class UserController {
         if (user != null && userService.matchesPassword(password, user.getPassword())) {
             session.setAttribute("userId",user.getId());
             session.setAttribute("username",user.getNickname());
-            return "redirect:/home";
+            session.setAttribute("intro", user.getIntro());
+            return "redirect:/board";
         } else {
             return "redirect:/login_fail";
         }
