@@ -23,18 +23,29 @@
     <div style="width: 119px; height: 20px; left: 1743px; top: 13px; position: absolute">
 
       <!-- 회원가입 -->
-      <li>
-        <a th:action="@{/signup}" href="signup.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
-          회원가입
-        </a>
-      </li>
+      <ul style="list-style: none; display: flex; gap: 10px;">
+        <!-- 세션에 로그인 정보가 있는 경우 -->
+        <li th:if="${session['userId']}">
 
-      <!-- 로그인 -->
-      <li>
-        <a th:href="@{/loginForm}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+          <a th:href="@{'/user/' + ${session['userId']}}" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
+            <span th:text="${session['username']}"></span>
+          </a>
+        </li>
+
+        <li th:if="${session['userId']}">
+          <a th:href="@{/logout}" style="left: 143px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; margin-left: 10px; white-space: nowrap;">
+            로그아웃
+          </a>
+        </li>
+      </ul>
+
+      <!-- 세션에 로그인 정보가 없는 경우 -->
+      <li th:unless="${session['username']}">
+        <a th:href="@{/index}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
           로그인
         </a>
       </li>
+
     </div>
 
     <!-- 블로그 검색창 -->
@@ -52,14 +63,14 @@
         <a href="#">엘든 링</a>
         <ul class="games">
           <li><a href="csgo_list.html">CS:GO</a></li>
-<!--          <li><a href="#">발더스 게이트 3</a></li>-->
-<!--          <li><a href="#">스타필드</a></li>-->
-<!--          <li><a href="#">데스티니 가디언즈</a></li>-->
-<!--          <li><a href="#">폴아웃 4</a></li>-->
-<!--          <li><a href="#">아머드 코어 6</a></li>-->
-<!--          <li><a href="#">사이버 펑크 2077</a></li>-->
-<!--          <li><a href="#">FC24</a></li>-->
-<!--          <li><a href="#">엘든 링</a></li>-->
+          <li><a href="#">발더스 게이트 3</a></li>
+          <li><a href="#">스타필드</a></li>
+          <li><a href="#">데스티니 가디언즈</a></li>
+          <li><a href="#">폴아웃 4</a></li>
+          <li><a href="#">아머드 코어 6</a></li>
+          <li><a href="#">사이버 펑크 2077</a></li>
+          <li><a href="#">FC24</a></li>
+          <li><a href="#">엘든 링</a></li>
           <li><a href="darksoul_3_list.html">다크 소울 3</a></li>
         </ul>
       </li>
@@ -113,7 +124,7 @@
       <input placeholder="검색어를 입력하세요." 
       style="width: 228px; height: 27.33px; left: 11.32px; top: 1px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;"></input>
       <!--돋보기 아이콘-->
-      <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 250px; top: 7px; position: absolute; color: #171D25"></a></i>
+      <i><a th:href="@{'/user/' + ${session['userId']}}" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 250px; top: 7px; position: absolute; color: #171D25"></a></i>
     </div>
     <!--글쓰기-->
     <div style="width: 496px; height: 30px; left: 50px; top: 17px; position: absolute">
