@@ -20,20 +20,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/home")
-    public String home() { return "/home"; }
-
-//    @GetMapping("/home")
-//    public String home(Model model) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
-//        model.addAttribute("isAuthenticated", isAuthenticated);
-//        if (isAuthenticated) {
-//            model.addAttribute("username", authentication.getName());
-//        }
-//        return "/home";
-//    }
-
     @GetMapping("/signup")
     public String signup() {
         return "signup";
@@ -193,15 +179,5 @@ public class UserController {
         user.setIntro(intro);
         userService.updateUserInfo(user);
         return "redirect:/user/{id}";
-    }
-
-    @GetMapping("/elden_ring_detail")
-    public String elden() {
-        return "elden_ring_detail";
-    }
-
-    @GetMapping("/index")
-    public String index() {
-        return "index";
     }
 }
