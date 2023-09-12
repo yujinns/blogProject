@@ -13,7 +13,7 @@
   integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <title>로그인</title>
 </head>
-<body style="background: url(image/main_background.png) no-repeat center fixed; background-size: cover; height: 100vh;">
+<body style="background: url(images/main_background.png) no-repeat center fixed; background-size: cover; height: 100vh;">
 
   <form name="loginForm" th:action="@{/login}" method="post">
     
@@ -64,15 +64,11 @@
       <div><a th:href="@{/signup}" class="Register">회원가입</a></div>
     </section>
   </form>
-
-  <script th:if="${message}">
-    document.addEventListener("DOMContentLoaded", function() {
-      var messageFromController = /*[[${session.message}]]*/ "";
-      if (messageFromController !== "") {
-        alert(messageFromController);
-        console.log(messageFromController);
-      }
-    });
+  <script th:inline="javascript">
+    var alertMessage = /*[[${session.message}]]*/ '';
+    if (alertMessage) {
+      alert(alertMessage);
+    }
   </script>
 </body>
 </html>

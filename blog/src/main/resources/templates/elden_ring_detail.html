@@ -11,7 +11,7 @@
   <script src="https://kit.fontawesome.com/a67b8eee2b.js" crossorigin="anonymous"></script>
   <title>제목</title>
 </head>
-<body style="background: url(/image/elden_ring_bg.png) no-repeat center fixed; background-size: cover; height: 100vh;">
+<body style="background: url(/images/elden_ring_bg.png) no-repeat center fixed; background-size: cover; height: 100vh;">
 <!-- header 시작 -->
 <header>
 
@@ -21,16 +21,32 @@
     <div style="width: 119px; height: 20px; left: 1743px; top: 13px; position: absolute">
 
       <!-- 회원가입 -->
-      <li>
+      <ul style="list-style: none; display: flex; gap: 10px;">
+        <!-- 세션에 로그인 정보가 있는 경우 -->
+        <li th:if="${session['userId']}">
+          <a th:href="@{'/user/' + ${session['userId']}}" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
+            <span th:text="${session['username']}"></span>
+          </a>
+        </li>
+
+        <li th:if="${session['userId']}">
+          <a th:href="@{/logout}" style="left: 143px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; margin-left: 10px; white-space: nowrap;">
+            로그아웃
+          </a>
+        </li>
+      </ul>
+      <!-- 세션에 로그인 정보가 없는 경우 -->
+<!--      <li th:unless="${session['userId']}">-->
+<!--        <a href="/register.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">-->
+<!--          회원가입-->
+<!--        </a>-->
+<!--      </li>-->
+      <li th:unless="${session['username']}">
+        <a th:href="@{/index}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+          로그인
+        </a>
         <a th:href="@{/signup}" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
           회원가입
-        </a>
-      </li>
-
-      <!-- 로그인 -->
-      <li>
-        <a th:href="@{/loginForm}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
-          로그인
         </a>
       </li>
     </div>
@@ -73,63 +89,30 @@
   <div class="write_block">
     <div class="writer_info_wrap">
       <img class="profile_photo" src="https://via.placeholder.com/48x48" />
-      <div class="profile_name"><span th:text="${board.title}"></span></div>
-      <div class="point"></div>
+      <div class="profile_name"><span th:text="${session.username}"></span></div>
+      <div class="point">▪</div>
       <div class="write_date"><span th:text="${board.createdtime}"></span></div>
-      <div class="By">By</div>
+      <div class="By" style=>By</div>
       <div class="profile_id"><span th:text="${session.userId}"></span></div>
     </div>
 
-    <!--    <div class="detail_title">드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>-->
     <div class="detail_title"><span th:text="${board.title}"></span></div>
-    <div class="detail_cont"><span th:text="${board.content}"></span></div>
-
+    <div class="detail_cont">게시글</div>
     <div class="list_bt" >
       <div class="list_bt_block"></div>
       <a th:href="@{/board}" class="list_text">목록</a>
     </div>
-
     <div class="update_bt" th:if="${session['userId']}">
       <div class="update_bt_block"></div>
       <a th:href="@{/board/updateform}" class="update_text">수정</a>
     </div>
-
     <div class="delete_bt" th:if="${session['userId']}">
       <div class="delete_bt_block"></div>
       <a th:href="@{/board/delete/{boardIdx}(boardIdx=${board.boardIdx})}" class="delete_text">삭제</a>
     </div>
 
-    <div class="like_bt"><i class=""></i>
-      <i class="fa-solid fa-thumbs-up"></i>
-      <div class="like_count">60</div>
-    </div>
-    <div class="comment_icon">
-      <i class="fa-solid fa-comment-dots"></i>
-      <div class="comment_count">10</div>
-    </div>
-    <div class="post_underbar"></div>
-
-    <!--댓글 작성-->
-    <form id="comment" action="#" method="post">
-      <div class="comment_write_wrap">
-        <img class="comment_photo" src="https://via.placeholder.com/48x48" />
-        <input class="comment_write" type="text" placeholder="의견을 남겨주세요 !"></input>
-        <div class="comment_uderbar"></div>
-        <div class="comment_write_bt">
-          <input type="submit" value="작성" class="comment_write_bt_block"></input>
-        </div>
-      </div>
-    </form>
-
-    <div class="comment">
-      <img class="other_comment_photo" src="https://via.placeholder.com/48x48" />
-      <div class="other_user">잡았다 요놈</div>
-      <div class="comment_cont">님 진짜 개못하네요 ㄷㄷㄷㄷ</div>
-      <div class="comment_date">2023.07.31 16:21</div>
-      <div class="comment_like_count">9999</div>
-      <i class="fa-solid fa-thumbs-up"></i>
-    </div>
   </div>
+
 
 </main>
 <div class="scrollbar" id="style-2">

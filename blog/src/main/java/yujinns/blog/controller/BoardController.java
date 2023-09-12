@@ -108,7 +108,6 @@ public class BoardController {
         ModelAndView mv = new ModelAndView("/updateform");
         System.out.println(dto);
         mv.addObject("update", dto);
-
         return mv;
     }
 
@@ -120,7 +119,7 @@ public class BoardController {
     }
 
     @GetMapping("/deleteBoard")
-    public String deleteBoard( Board dto) throws Exception{
+    public String deleteBoard(Board dto) throws Exception{
         System.out.println("deleteBoard::"+dto);
         Board result = boardService.deleteBoard(dto);
         return (result != null)?"redirect:/board/list":"/errorDelete";

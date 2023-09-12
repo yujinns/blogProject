@@ -1,0 +1,238 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+.content h1{
+    font-size: 95px;
+    color: #fff;
+    margin-bottom: 50px;
+    top: 70px;
+}
+
+.login_id {
+    font-size: 23px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color:inherit;
+}
+
+.login_pwd {
+    font-size: 23px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color:inherit;
+}
+
+.Login {
+    font-size: 23px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color:inherit;
+}
+
+.FindPassword {
+    font-size: 23px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.Register {
+    font-size: 23px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s
+}
+
+.content a{
+    font-size: 23px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.content a:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.background-clip{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.login_wrap {
+    left: 300px;
+}
+.RegisterPage {
+    display: none; 
+    position: absolute;
+    top: -340px;
+    left: -210px;
+}
+
+.RegisterPage div input {
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color:inherit;
+}
+
+.RegisterPage div a {
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color:inherit;
+}
+
+.RegisterPage a {
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color:inherit;
+}
+
+
+.RegisterPage div textarea {
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+    background-color:inherit;
+    resize: none;
+    width: 420px;
+    height: 80px;
+}
+
+.signup_name {
+    font-size: 95px;
+    color: #fff;
+    margin-bottom: 50px;
+    top: 70px;
+}
+
+.id_ck {
+    position: absolute;
+    white-space: nowrap;
+    left: 330px;
+    top: 175px;
+    font-size: 5px;
+}
+
+.signup_pwd_q {
+    font-size: 13px;
+    color: #797979;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    background:inherit;
+}
+
+.signup {
+    top: 700px;
+}
+
+.find_pwd {
+    display: none;
+}
+
+.find_pwd div input {
+    font-size: 23px;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color:inherit;
+}
+
+
+.find_pwd_q {
+    font-size: 21px;
+    color: #797979;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    background:inherit;
+}
+/* input::placeholder {color:#ccc;}
+input::-webkit-input-placeholder {color:#ccc;}
+input:-ms-input-placeholder {color:#ccc;}
+ 
+textarea::placeholder {color:#ccc;}
+textarea::-webkit-input-placeholder {color:#ccc;}
+textarea:-ms-input-placeholder {color:#ccc;} */
+
+@media (min-aspect-ratio:16/9) {
+    .background-clip{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-aspect-ratio:16/9) {
+    .background-clip{
+        width: auto;
+        height: 100%;
+    }
+}

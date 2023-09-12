@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="../css/mypage.css">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/mypage.css}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body>
   <form id="mypage" name="mypage" th:action="@{'/mypage_action/' + ${user.id}}" method="post">
     <div class="mypage">
-        <img class="mypage_bg" src="../images/main_background.png" />
+        <img class="mypage_bg" th:src="@{/images/main_background.png}" alt="my_image"/>
         <div class="mypage_block"></div>
         <div class="mypage_title">마이 페이지</div>
         <div class="profile">
@@ -27,7 +27,7 @@
           <input id="nickname" name="nickname" type="text" class="profile_name_c" th:value="${user.nickname}"></input>
           <a th:href="@{'/delete/' + ${user.id}}" class="profile_delete">회원 탈퇴</a>
           <a th:href="@{'/password_change/' + ${user.id}}" class="profile_pwd_ch">비밀번호 변경</a>
-          <img class="profile_photo" src="../images/아이유.png" />
+          <img class="profile_photo" th:src="@{/images/아이유.png}" />
         </div>
         <div class="profile_intro_wrap">
           <div class="profile_intro">
@@ -42,4 +42,10 @@
         <a href="#" class="mypage_cancle_bt">취소</a>
       </div>
   </form>
+  <script th:inline="javascript">
+      var alertMessage = /*[[${session.message}]]*/ '';
+      if (alertMessage) {
+          alert(alertMessage);
+      }
+  </script>
 </body>

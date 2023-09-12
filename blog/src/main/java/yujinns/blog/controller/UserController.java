@@ -20,20 +20,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/home")
-    public String home() { return "/home"; }
-
-//    @GetMapping("/home")
-//    public String home(Model model) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
-//        model.addAttribute("isAuthenticated", isAuthenticated);
-//        if (isAuthenticated) {
-//            model.addAttribute("username", authentication.getName());
-//        }
-//        return "/home";
-//    }
-
     @GetMapping("/signup")
     public String signup() {
         return "signup";
@@ -46,7 +32,7 @@ public class UserController {
         return "userlist";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/registerAction")
     public String signup(User user) {
         userService.insertUser(user);
         return "redirect:/home";
@@ -103,16 +89,17 @@ public class UserController {
     @GetMapping("/login")
     public String login() { return "loginForm"; }
 
-    @PostMapping("/login")
+    @PostMapping("/loginAction")
     public String login(@RequestParam String id, @RequestParam String password, HttpSession session) {
         User user = userService.selectUserById(id);
         if (user != null && userService.matchesPassword(password, user.getPassword())) {
             session.setAttribute("userId",user.getId());
             session.setAttribute("username",user.getNickname());
+//            return "redirect:/user/" + id;
             session.setAttribute("intro", user.getIntro());
             return "redirect:/board";
         } else {
-            return "redirect:/login_fail";
+            return "redirect:/index";
         }
     }
 
@@ -120,7 +107,7 @@ public class UserController {
     public String logout(HttpSession session) {
         session.removeAttribute("username");
         session.removeAttribute("userId");
-        return "redirect:/home";
+        return "redirect:/index";
     }
 
     @GetMapping("/login_success")
