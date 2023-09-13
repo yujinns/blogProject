@@ -124,9 +124,9 @@ public class BoardController {
         return showMessageAndRedirect(message, model);
     }
 
-    @GetMapping("/delete/{boardIdx}")
-    public String deleteBoard(@PathVariable int boardIdx, Model model) throws Exception{
-        Board result = boardService.deleteByIdx(boardIdx);
+    @PostMapping("/delete")
+    public String deleteBoard(@RequestParam int id, Model model) throws Exception{
+        Board result = boardService.deleteByIdx(id);
         Message message = new Message("게시글 삭제가 완료되었습니다.", "/board", RequestMethod.GET, null);
         return showMessageAndRedirect(message, model);
     }
