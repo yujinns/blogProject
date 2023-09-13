@@ -35,7 +35,7 @@ public class UserController {
     @PostMapping("/registerAction")
     public String signup(User user) {
         userService.insertUser(user);
-        return "redirect:/home";
+        return "index";
     }
 
     @GetMapping("/delete")
@@ -46,7 +46,7 @@ public class UserController {
 //    @PostMapping("/delete")
 //    public String delete(@RequestParam String id) {
 //        userService.deleteUserById(id);
-//        return "redirect:/home";
+//        return "redirect:/index";
 //    }
 
     @GetMapping("/delete/{userId}")
@@ -83,7 +83,7 @@ public class UserController {
     @PostMapping("/update")
     public String updateUser(User user) {
         userService.updateUser(user);
-        return "redirect:/home"; // 업데이트 후 웰컴 페이지로 리다이렉트
+        return "redirect:/index"; // 업데이트 후 웰컴 페이지로 리다이렉트
     }
 
     @GetMapping("/login")
@@ -145,7 +145,7 @@ public class UserController {
                 return "/mypage";
             } else {
                 model.addAttribute("message", "회원 정보와 일치하지 않습니다.");
-                return "redirect:/home";
+                return "redirect:/index";
             }
         } else {
             model.addAttribute("message","로그인이 필요한 페이지입니다.");
