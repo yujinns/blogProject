@@ -76,7 +76,7 @@
 			boardIdx = #{boardIdx}
 	</update>
 
-	<delete id="deleteBoard" parameterType="Board">
+	<delete id="delete" parameterType="int">
 			DELETE FROM yujinns_board
 			WHERE
 				boardIdx = #{boardIdx}

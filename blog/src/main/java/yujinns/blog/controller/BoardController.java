@@ -124,11 +124,10 @@ public class BoardController {
         return "redirect:/board";
     }
 
-    @GetMapping("/deleteBoard")
-    public String deleteBoard(Board dto) throws Exception{
-        System.out.println("deleteBoard::"+dto);
-        Board result = boardService.deleteBoard(dto);
-        return (result != null)?"redirect:/board/list":"/errorDelete";
+    @GetMapping("/delete/{boardIdx}")
+    public String deleteBoard(@PathVariable int boardIdx, Model model) throws Exception{
+        Board result = boardService.deleteByIdx(boardIdx);
+        return (result != null)?"redirect:/board":"/errorDelete";
     }
 
 }
