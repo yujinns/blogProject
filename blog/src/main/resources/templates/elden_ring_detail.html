@@ -97,14 +97,14 @@
     </div>
 
     <div class="detail_title"><span th:text="${board.title}"></span></div>
-    <div class="detail_cont">게시글</div>
+    <div class="detail_cont"><span th:text="${board.content}"></span></div>
     <div class="list_bt" >
       <div class="list_bt_block"></div>
       <a th:href="@{/board}" class="list_text">목록</a>
     </div>
     <div class="update_bt" th:if="${session['userId']}">
       <div class="update_bt_block"></div>
-      <a th:href="@{/board/updateform}" class="update_text">수정</a>
+      <a th:href="@{/board/updateform/{boardIdx}(boardIdx=${board.boardIdx})}" class="update_text">수정</a>
     </div>
     <div class="delete_bt" th:if="${session['userId']}">
       <div class="delete_bt_block"></div>
