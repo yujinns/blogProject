@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="KR">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="loginForm.css">
+  <link rel="stylesheet" type="text/css" href="css/loginForm.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a67b8eee2b.js" crossorigin="anonymous"></script>
-  <script src="loginForm.js"></script>
+<!--  <script src="js/loginForm.js"></script>-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <title>로그인</title>
 </head>
-<body style="background: url(image/main_background.png) no-repeat center fixed; background-size: cover; height: 100vh;">
+<body style="background: url(images/main_background.png) no-repeat center fixed; background-size: cover; height: 100vh;">
 
-  <form name="loginForm" action="loginAction" method="get">
+  <form name="loginForm" th:action="@{/login}" method="post">
     
     <section class="LoginPage">
       <!--로그인 블록-->
@@ -39,7 +39,7 @@
         <div class="pwd_block"></div>
 
         <!--비밀번호 입력란-->
-        <input type="password" name="pwd" placeholder="비밀번호를 입력하세요." maxlength="20"></input>
+        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요." maxlength="20"></input>
       </div>
 
         <!--아이디저장-->
@@ -61,8 +61,14 @@
 
       <!--비밀번호 찾기-->
       <div><a href="#" class="FindPassword">비밀번호 찾기</a></div>
-      <div><a href="registerFrom.html" class="Register">회원가입</a></div>
+      <div><a th:href="@{/signup}" class="Register">회원가입</a></div>
     </section>
   </form>
+  <script th:inline="javascript">
+    var alertMessage = /*[[${session.message}]]*/ '';
+    if (alertMessage) {
+      alert(alertMessage);
+    }
+  </script>
 </body>
 </html>

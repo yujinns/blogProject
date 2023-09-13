@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yujinns.blog.mapper.BoardMapper">
+
+	<select id="select" resultType="int">
+		SELECT 1
+		FROM
+		dual
+	</select>
+
+	<select id="selectByIdx" parameterType="int" resultType="yujinns.blog.DTO.Board">
+			SELECT
+				boardIdx, title, content, name, createdtime, hitcnt
+			FROM
+				yujinns_board
+			WHERE
+				boardidx = #{boardIdx}
+			ORDER BY boardIdx DESC
+	</select>
+
+	<select id="selectByUserId" parameterType="String" resultType="yujinns.blog.DTO.Board">
+		SELECT
+			boardIdx, title, content, name, createdtime, hitcnt
+		FROM
+			yujinns_board
+		WHERE
+			name = #{userId}
+	</select>
+
+	<select id="list" resultType="yujinns.blog.DTO.Board">
+		select
+			boardIdx, title, content, name, createdtime, hitcnt
+		from
+			yujinns_board
+		order by boardIdx desc
+	</select>
+
+	<insert id="writeAction" parameterType="yujinns.blog.DTO.Board">
+			INSERT INTO yujinns_board
+			(
+				boardIdx, title, content, name, createdtime
+			)
+			VALUES
+			(
+				boardidx_seq.NEXTVAL,
+				#{title},
+				#{content},
+				#{name},
+				SYSDATE
+			)
+	</insert>
+
+	<update id="updateAction" parameterType="yujinns.blog.DTO.Board">
+
+			UPDATE yujinns_board
+
+			SET
+			title = #{title},
+			name = #{name},
+			content = #{content},
+			updatedtime = SYSDATE
+
+			WHERE
+				boardidx = #{boardIdx}
+	</update>
+
+	<update id="updatehit" parameterType="int">
+		UPDATE yujinns_board
+
+		SET
+			hitcnt = hitcnt + 1
+
+		WHERE
+			boardIdx = #{boardIdx}
+	</update>
+
+	<delete id="delete" parameterType="int">
+			DELETE FROM yujinns_board
+			WHERE
+				boardIdx = #{boardIdx}
+	</delete>
+</mapper>

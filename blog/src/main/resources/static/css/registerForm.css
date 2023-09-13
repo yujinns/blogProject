@@ -1,0 +1,357 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding:0px;    
+}
+
+html {
+    overflow: hidden;
+  }
+
+.body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    background: url(images/main_background.png) no-repeat center fixed;
+    background-size: cover; 
+    height: 100vh;
+}
+
+.RegisterPage {
+    width: 1920px; 
+    height: 1080px; 
+    top: -40px;
+    position: relative; 
+    background: rgba(22, 25, 32, 0); 
+    border: 0.50px #161920 solid;
+}
+
+.register_block {
+    width: 826px; 
+    height: 716px; 
+    left: 542px; 
+    top: 144px; 
+    position: absolute; 
+    background: #191A1E; 
+    border-radius: 50px; 
+    border: 0.50px #191A1E solid;
+}
+
+.servicename {
+    padding: 10px; 
+    left: 872px; 
+    top: 185px; 
+    position: absolute; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    display: inline-flex;
+}
+
+.servicename label {
+    color: #FAFBFC; 
+    font-size: 40px;
+}
+
+.register_id_wrap {
+    width: 505px; 
+    height: 45px; 
+    left: 708px; 
+    top: 282px; 
+    position: absolute;
+}
+
+.register_id_wrap div {
+    width: 360px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.register_id_wrap input {
+    width: 340px; 
+    height: 25px; 
+    left: 10px; 
+    top: 7px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100; 
+    outline: none;
+}
+
+.idcheck_button input {
+    width: 129px; 
+    height: 35px; 
+    left: 1080px; 
+    top: 283px; 
+    font-weight: 500; 
+    position: absolute; 
+    font-size: 18px; 
+    background: #32353C;
+    color: #E0E1E6;
+    border-radius: 9px;
+}
+
+.register_pwd_wrap {
+    width: 504px; 
+    height: 48px; 
+    left: 708px; 
+    top: 326px; 
+    position: absolute;
+}
+
+.register_pwd_wrap div {
+    width: 360px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.register_pwd_wrap input {
+    width: 340px; 
+    height: 25px; 
+    left: 10px; 
+    top: 7px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100; 
+    outline: none;
+}
+
+.register_pwdcheck_wrap {
+    width: 504px; 
+    height: 48px; 
+    left: 708px; 
+    top: 369px; 
+    position: absolute;
+}
+
+.register_pwdcheck_wrap div {
+    width: 360px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; border: 0.50px black solid;
+}
+
+.register_pwdcheck_wrap input {
+    width: 340px; 
+    height: 25px; 
+    left: 10px; 
+    top: 7px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100; 
+    outline: none;
+}
+
+.register_name_wrap {
+    width: 504px; 
+    height: 45px; 
+    left: 708px; 
+    top: 413px; 
+    position: absolute;
+}
+
+.register_name_wrap div {
+    width: 360px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.register_name_wrap input {
+    width: 340px; 
+    height: 25px; 
+    left: 10px; 
+    top: 7px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100; 
+    outline: none;
+}
+
+.register_email_wrap {
+    width: 504px; 
+    height: 45px; 
+    left: 708px; 
+    top: 457px; 
+    position: absolute;
+}
+
+.register_email_wrap div {
+    width: 360px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.register_email_wrap input {
+    width: 340px; 
+    height: 25px; 
+    left: 10px; 
+    top: 7px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100; 
+    outline: none;
+}
+
+.register_pwd_q_wrap {
+    width: 504px; 
+    height: 45px; 
+    left: 708px; 
+    top: 501px; 
+    position: absolute;
+}
+
+.register_pwd_q_wrap div {
+    width: 360px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.register_pwd_q_wrap select {
+    width: 340px; 
+    height: 35px; 
+    left: 10px; 
+    top: 1px; 
+    position: absolute;
+    background: #32353C;
+    color: #E0E1E6; 
+    font-size: 13px; 
+    font-weight: 100;
+    border: 0;
+    outline: none;
+}
+
+.register_pwd_a_wrap {
+    width: 504px; 
+    height: 45px; 
+    left: 708px; 
+    top: 545px; 
+    position: absolute;
+}
+
+.register_pwd_a_wrap div {
+    width: 360px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #32353C; 
+    border-radius: 9px; 
+    border: 0.50px black solid;
+}
+
+.register_pwd_a_wrap input {
+    width: 340px; 
+    height: 25px; 
+    left: 10px; 
+    top: 7px; 
+    position: absolute; 
+    color: #E0E1E6; 
+    background: #32353C; 
+    font-size: 13px; 
+    border: 0; 
+    font-weight: 100; 
+    outline: none;
+}
+
+.register_intro_wrap {
+    width: 504px; 
+    height: 45px; 
+    left: 708px; 
+    top: 583px; 
+    position: absolute;
+}
+
+.register_intro_wrap textarea {
+    width: 495px; 
+    height: 142px; 
+    left: 0px; 
+    top: 7px; 
+    position: absolute;
+    background: #32353C; 
+    border-radius: 0px; 
+    border: 0.50px black solid;
+    resize: none;
+    outline: none;
+    color: #E0E1E6;
+    font-size: 15px;
+}
+
+.register_button {
+    width: 497px; 
+    height: 51px; 
+    left: 708px; 
+    top: 744px; 
+    position: absolute;
+}
+
+.register_button input {
+    width: 497px; 
+    height: 51px; 
+    left: 0px; 
+    top: 0px; 
+    font-weight: 500; 
+    position: absolute; 
+    font-size: 18px; 
+    background: #32353C;
+    color: #E0E1E6;
+    border-radius: 9px;
+}
+
+.RegisterPage a {
+    width: 112px; 
+    height: 15px; 
+    left: 901px; 
+    top: 812px; 
+    position: absolute; 
+    text-align: center; 
+    color: #FAFBFC; 
+    font-size: 15px; 
+    font-weight: 500;
+}

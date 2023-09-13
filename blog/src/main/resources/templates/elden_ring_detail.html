@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="KR" xmlns:th="http://www.w3.org/1999/XSL/Transform">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/detail.css}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a67b8eee2b.js" crossorigin="anonymous"></script>
+  <title>제목</title>
+</head>
+<body style="background: url(/images/elden_ring_bg.png) no-repeat center fixed; background-size: cover; height: 100vh;">
+<!-- header 시작 -->
+<header>
+
+  <!-- 헤더 블록 -->
+  <nav>
+    <div style="width: 100%; height: 47px; left: 0px; top: 0px; position: absolute; background: #171D25"></div>
+    <div style="width: 119px; height: 20px; left: 1743px; top: 13px; position: absolute">
+
+      <!-- 회원가입 -->
+      <ul style="list-style: none; display: flex; gap: 10px;">
+        <!-- 세션에 로그인 정보가 있는 경우 -->
+        <li th:if="${session['userId']}">
+          <a th:href="@{'/user/' + ${session['userId']}}" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
+            <span th:text="${session['username']}"></span>
+          </a>
+        </li>
+
+        <li th:if="${session['userId']}">
+          <a th:href="@{/logout}" style="left: 143px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px; margin-left: 10px; white-space: nowrap;">
+            로그아웃
+          </a>
+        </li>
+      </ul>
+      <!-- 세션에 로그인 정보가 없는 경우 -->
+<!--      <li th:unless="${session['userId']}">-->
+<!--        <a href="/register.html" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">-->
+<!--          회원가입-->
+<!--        </a>-->
+<!--      </li>-->
+      <li th:unless="${session['username']}">
+        <a th:href="@{/index}" style="width: 44px; height: 20px; left: 0px; top: 0px; position: absolute; color: #7C7C7C; font-size: 13px;">
+          로그인
+        </a>
+        <a th:href="@{/signup}" style="left: 63px; top: 1px; position: absolute; color: #7C7C7C; font-size: 13px;">
+          회원가입
+        </a>
+      </li>
+    </div>
+
+    <!-- 블로그 검색창 -->
+    <!--    <div style="width: 665.39px; height: 30px; left: 628px; top: 8px; position: absolute">-->
+    <!--      <div style="width: 665.39px; height: 30px; left: 0px; top: 0px; position: absolute; background: #32353C; border-radius: 10px"></div>-->
+    <!--      <i><a href="#" class="fa-solid fa-magnifying-glass" style="width: 21px; height: 21px; left: 640px; top: 7px; position: absolute; color: #171D25"></a></i>-->
+    <!--      <input placeholder="검색어를 입력하세요."-->
+    <!--             style="width: 611px; left: 12px; top: 7px; position: absolute; background-color: #32353C; color: #E0E1E6; outline: none; border: 0; font-size: 15px; font-weight: 100;">-->
+    <!--      </input>-->
+  </nav>
+
+  <!--블로그 카테고리 선택-->
+  <ul class="game_select">
+    <li>
+      <a href="#">엘든 링</a>
+      <ul class="games">
+        <li><a href="csgo_list.html">CS:GO</a></li>
+        <li><a href="#">발더스 게이트 3</a></li>
+        <li><a href="#">스타필드</a></li>
+        <li><a href="#">위쳐 3</a></li>
+        <li><a href="#">폴아웃 4</a></li>
+        <li><a href="#">아머드 코어 6</a></li>
+        <li><a href="#">사이버 펑크 2077</a></li>
+        <li><a href="#">FC24</a></li>
+        <li><a href="#">엘든 링</a></li>
+        <li><a href="darksoul_3_list.html">다크 소울 3</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--서비스 이름-->
+  <div> <a th:href="@{/home}" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;">유진스팀</a></div>
+  </nav>
+</header>
+<!-- header 끝 -->
+<!-- main 시작 -->
+<main class="detail">
+  <div class="write_block">
+    <div class="writer_info_wrap">
+      <img class="profile_photo" src="https://via.placeholder.com/48x48" />
+      <div class="profile_name"><span th:text="${session.username}"></span></div>
+      <div class="point">▪</div>
+      <div class="write_date"><span th:text="${board.createdtime}"></span></div>
+      <div class="By" style=>By</div>
+      <div class="profile_id"><span th:text="${session.userId}"></span></div>
+    </div>
+
+    <div class="detail_title"><span th:text="${board.title}"></span></div>
+    <div class="detail_cont"><span th:text="${board.content}"></span></div>
+    <div class="list_bt" >
+      <div class="list_bt_block"></div>
+      <a th:href="@{/board}" class="list_text">목록</a>
+    </div>
+    <div class="update_bt" th:if="${session['userId']}">
+      <div class="update_bt_block"></div>
+      <a th:href="@{/board/updateform/{boardIdx}(boardIdx=${board.boardIdx})}" class="update_text">수정</a>
+    </div>
+    <div class="delete_bt" th:if="${session['userId']}">
+      <div class="delete_bt_block">
+<!--        <a th:href="@{/board/delete/{boardIdx}(boardIdx=${board.boardIdx})}" class="delete_text">삭제</a>-->
+        <button type="button" onclick="deleteBoard();" class="delete_text">삭제</button>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <th:block layout:fragment="script">
+    <script th:inline="javascript">
+      function deleteBoard(){
+        const id = [[ ${board.boardIdx}]];
+        if(!confirm(id + '번 게시글을 삭제할까요?')){
+          return false;
+        }
+
+        const formHtml = `
+          <form id="deleteForm" action="/board/delete" method="post">
+            <input type="hidden" id="id" name="id" value="${id}"/>
+          </form>
+        `;
+
+        const doc = new DOMParser().parseFromString(formHtml, 'text/html');
+        const form = doc.body.firstChild;
+        document.body.append(form);
+        document.getElementById('deleteForm').submit();
+      }
+    </script>
+  </th:block>
+
+</main>
+<div class="scrollbar" id="style-2">
+  <div class="force-overflow"></div>
+</div>
+<main>
+
+</body>
