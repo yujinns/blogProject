@@ -16,7 +16,7 @@
 			FROM
 				yujinns_board
 			WHERE
-				boardIdx = #{boardIdx}
+				boardidx = #{boardIdx}
 			ORDER BY boardIdx DESC
 	</select>
 
@@ -63,7 +63,7 @@
 			updatedtime = SYSDATE
 
 			WHERE
-				boardIdx = #{boardIdx}
+				boardidx = #{boardIdx}
 	</update>
 
 	<update id="updatehit" parameterType="int">
