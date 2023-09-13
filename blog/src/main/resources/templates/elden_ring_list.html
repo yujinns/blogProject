@@ -147,25 +147,13 @@
             <div class="board_date">작성일</div>
           </div>
           <!--글 목록 -->
-          <div>
-            <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-            <div class="board_date1">2023.07.30</div>
-          </div>
-          <div>
-            <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-            <div class="board_date1">2023.07.30</div>
-          </div>
-          <div>
-            <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-            <div class="board_date1">2023.07.30</div>
-          </div>
-          <div>
-            <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-            <div class="board_date1">2023.07.30</div>
-          </div>
-          <div>
-            <div class="board_title1">&nbsp;&nbsp;&nbsp;&nbsp;드디어 엘든링 샀습니다 !!! 엘든링 찍먹 각</div>
-            <div class="board_date1">2023.07.30</div>
+          <div th:each="board: ${boardList}">
+            <div class="board_title1">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a th:href="@{/board/details/{boardIdx}(boardIdx=${board.boardIdx})}" th:text="${board.title}"></a>
+            </div>
+<!--            <div class="board_date1" th:text="${#dates.format(board.createdtime)}"></div>-->
+            <div class="board_date1" th:text="${board.createdtime}"></div>
           </div>
 
         </div>
