@@ -3,12 +3,10 @@ package yujinns.blog.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import yujinns.blog.DTO.Board;
+import yujinns.blog.DTO.Message;
 import yujinns.blog.service.BoardService;
 
 import javax.servlet.http.Cookie;
@@ -103,10 +101,11 @@ public class BoardController {
     }
 
     @PostMapping("/writeAction")
-    public String writeAction(Board dto) {
+    public String writeAction(final Board dto, Model model) {
         System.out.println("yujinns board::"+ dto);
         boardService.writeAction(dto);
-        return "redirect:/board";
+        Message message = new Message("게시글 생성이 완료되었습니다.", "/board", RequestMethod.GET, null);
+        return showMessageAndRedirect(message, model);
     }
 
     @GetMapping("/updateform/{id}")
@@ -118,16 +117,22 @@ public class BoardController {
     }
 
     @PostMapping("/updateAction")
-    public String updateAction(Board dto) throws Exception {
+    public String updateAction(Board dto, Model model) throws Exception {
         System.out.println("yujinns update::"+ dto);
         boardService.updateAction(dto);
-        return "redirect:/board";
+        Message message = new Message("게시글 수정이 완료되었습니다.", "/board", RequestMethod.GET, null);
+        return showMessageAndRedirect(message, model);
     }
 
     @GetMapping("/delete/{boardIdx}")
     public String deleteBoard(@PathVariable int boardIdx, Model model) throws Exception{
         Board result = boardService.deleteByIdx(boardIdx);
-        return (result != null)?"redirect:/board":"/errorDelete";
+        Message message = new Message("게시글 삭제가 완료되었습니다.", "/board", RequestMethod.GET, null);
+        return showMessageAndRedirect(message, model);
     }
 
+    private String showMessageAndRedirect(final Message params, Model model){
+        model.addAttribute("params", params);
+        return "common/messageRedirect";
+    }
 }
