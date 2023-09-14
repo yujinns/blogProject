@@ -97,10 +97,15 @@ public class UserController {
             session.setAttribute("username",user.getNickname());
 //            return "redirect:/user/" + id;
             session.setAttribute("intro", user.getIntro());
-            return "redirect:/board";
+            return "redirect:/main";
         } else {
             return "redirect:/index";
         }
+    }
+
+    @GetMapping("/main")
+    public String main(){
+        return "main";
     }
 
     @GetMapping("/logout")
