@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface CommentMapper {
-
+//
 //    List<Comment> getAllComments();
 //
 //    void insertComment(Comment comment);

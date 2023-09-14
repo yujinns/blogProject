@@ -12,8 +12,4 @@ public class Comment {
 
     // private String comment_like;
 
-    // 게시물과 댓글 간의 관계 설정
-    //  @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    //  private List<Comment> comments = new ArrayList<>();
-
 }

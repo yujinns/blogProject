@@ -35,7 +35,7 @@ public class UserController {
     @PostMapping("/registerAction")
     public String signup(User user) {
         userService.insertUser(user);
-        return "index";
+        return "game_select"; // index
     }
 
     @GetMapping("/delete")

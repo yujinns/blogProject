@@ -60,7 +60,8 @@
     <!--블로그 카테고리 선택-->
     <ul class="game_select">
       <li>
-        <a href="#">엘든 링</a>
+
+        <a href="#"><span th:text="${session.intro}"></span></a>
         <ul class="games">
           <li><a href="csgo_list.html">CS:GO</a></li>
           <li><a href="#">발더스 게이트 3</a></li>
@@ -77,7 +78,7 @@
     </ul>
 
     <!--서비스 이름-->
-    <div> <a th:href="@{/home}" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;">체리의 블로그</a></div>
+    <div> <a th:href="@{/home}" style="width: 104px; height: 20px; left: 49px; top: 10px; position: absolute; color: #E0E1E6; font-size: 20px;"><span th:text="${session.intro}"></span></a></div>
   </nav>
 </header>
 <!-- header 끝 -->

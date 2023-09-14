@@ -27,7 +27,7 @@ public class BoardController {
         String username = (String) session.getAttribute("username");
         List<Board> list = boardService.selectByUserId(userId);
         model.addAttribute("boardList", list);
-        return "elden_ring_list";
+        return "elden_ring_list"; //blog_main
     }
 
     @GetMapping("/details/{id}")

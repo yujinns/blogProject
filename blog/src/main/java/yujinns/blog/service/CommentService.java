@@ -16,7 +16,7 @@ public class CommentService {
     public CommentService(CommentMapper commentMapper) {
         this.commentMapper = commentMapper;
     }
-
+//
 //    public void insertComment(Comment comment) {
 //        commentMapper.insertComment(comment);
 //    }

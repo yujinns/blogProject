@@ -44,7 +44,7 @@ public class BlogController {
     @PostMapping("/makeblog")
     public String makeBlog(String blog_name) {
         blogService.makeBlog(blog_name);
-        return "redirect:/";
+        return "redirect:/"; // blog_main
     }
 
 

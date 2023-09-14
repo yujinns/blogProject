@@ -16,10 +16,14 @@ public class CommentController {
     private final CommentService commentService;
 
     @Autowired
-    public CommentController(CommentService commentService) {this.commentService = commentService;}
+    public CommentController(CommentService commentService) {
+        this.commentService = commentService;
+    }
 //
 //    @GetMapping("/commentinsert")
-//    public String commentinsert() {return "/commentinsert";}
+//    public String commentinsert() {
+//        return "/commentinsert";
+//    }
 //
 //    @PostMapping("/commentinsert")
 //    public String commentinsert(Comment comment) {
@@ -27,6 +31,7 @@ public class CommentController {
 //        commentService.insertComment(comment);
 //        return "/commentinsert";
 //    }
+//
 //    @GetMapping("/commentlist")
 //    public String commentList(Model model) {
 //        List<Comment> comments = commentService.getAllComments();
@@ -61,7 +66,7 @@ public class CommentController {
 //    }
 //
 //    @PostMapping("/update")
-//    public String updateComment(Comment comment){
+//    public String updateComment(Comment comment) {
 //        commentService.updateCommentById(comment);
 //        return "redirect:/commentlist";
 //    }
@@ -70,40 +75,10 @@ public class CommentController {
 //    public String delete() {
 //        return "/delete";
 //    }
-//    @PostMapping("/delete")
 //
+//    @PostMapping("/delete")
 //    public String delete(String id) {
 //        commentService.deleteCommentById(id);
 //        return "redirect:/commentlist";
-//    }
-
-//    @GetMapping("/")
-//    public List<Comment> getAllComments() {
-//        return commentRepository.findAll();
-//    }
-//
-//    @GetMapping("/{id}")
-//    public Comment getCommentById(@PathVariable Long id) {
-//        return commentRepository.findById(id).orElse(null);
-//    }
-//
-//    @PostMapping("/")
-//    public Comment createComment(@RequestBody Comment comment) {
-//        return commentRepository.save(comment);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public Comment updateComment(@PathVariable Long id, @RequestBody Comment updatedComment) {
-//        Comment existingComment = commentRepository.findById(id).orElse(null);
-//        if (existingComment != null) {
-//            existingComment.setText(updatedComment.getText());
-//            return commentRepository.save(existingComment);
-//        }
-//        return null;
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteComment(@PathVariable Long id) {
-//        commentRepository.deleteById(id);
 //    }
 }
