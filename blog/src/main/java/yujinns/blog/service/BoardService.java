@@ -34,8 +34,9 @@ public class BoardService {
         boardMapper.updateAction(dto);
     }
 
-    public Board deleteBoard(Board dto) {
-        int result = boardMapper.deleteBoard(dto);
+    public Board deleteByIdx(int boardIdx) {
+        Board dto = boardMapper.selectByIdx(boardIdx);
+        int result = boardMapper.delete(boardIdx);
         return (result == 1)?dto:null;
     }
 

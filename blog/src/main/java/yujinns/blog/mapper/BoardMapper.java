@@ -16,7 +16,7 @@ public interface BoardMapper {
 
     void updateAction(Board dto);
 
-    int deleteBoard(Board dto);
+    int delete(int boardIdx);
 
     void list(PageRequest boardIdx);
 
